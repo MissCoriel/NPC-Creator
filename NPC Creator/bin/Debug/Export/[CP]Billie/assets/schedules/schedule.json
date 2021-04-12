@@ -1,0 +1,8 @@
+{
+  "spring": "610 BusStop 15 21 2/900 Town 30 56 2 music \"Strings\\schedules\\Billie:music.000\"/1130 Town 75 46 3 \"Strings\\schedules\\Billie:river.000\"/1330 Saloon 23 11 0 \"Strings\\schedules\\Billie:saloon.000\"/2000 BusStop 15 21 3",
+  "summer": "610 BusStop 15 21 2/900 Town 30 56 2 music \"Strings\\schedules\\Billie:music.000\"/1130 Town 75 46 3 \"Strings\\schedules\\Billie:river.000\"/1330 Saloon 23 11 0 \"Strings\\schedules\\Billie:saloon.000\"/2000 BusStop 15 21 3",
+  "fall": "610 BusStop 15 21 2/900 Town 30 56 2 music \"Strings\\schedules\\Billie:music.000\"/1130 Town 75 46 3 \"Strings\\schedules\\Billie:river.000\"/1330 Saloon 23 11 0 \"Strings\\schedules\\Billie:saloon.000\"/2000 BusStop 15 21 3",
+  "winter": "610 BusStop 15 21 2/900 Town 30 56 2 music \"Strings\\schedules\\Billie:music.000\"/1130 Town 75 46 3 \"Strings\\schedules\\Billie:river.000\"/1330 Saloon 23 11 0 \"Strings\\schedules\\Billie:saloon.000\"/2000 BusStop 15 21 3",
+  "rain": "610 BusStop 15 21 2/620 ScienceHouse 22 17 2/1330 Saloon 23 11 0 \"Strings\\schedules\\Billie:saloon.000\"/2000 BusStop 15 21 3",
+}
+

@@ -1,0 +1,11 @@
+{
+  "Changes": [
+    {
+      "Action": "EditData",
+      "Target": "data/NPCDispositions",
+      "Entries": {
+        "testNPC01": "adult/neutral/neutral/neutral//non-datable/null/Desert/fall 1//Blacksmith 3 7/TestNPC01"
+      }
+    }
+  ]
+}

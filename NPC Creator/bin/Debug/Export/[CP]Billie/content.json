@@ -1,0 +1,95 @@
+{
+  "Format": "1.10.0",
+  "Changes": [
+  
+    {
+	
+      "LogName": "NPC Manifestation",
+      "Action": "EditData",
+      "Target": "Data/NPCDispositions",
+      "Entries": {
+        "Billie": "adult/neutral/shy/neutral/female/datable/Sam/Town/winter 2//BusStop 15 21/Billie"
+		
+		
+      }
+    },
+	
+    {
+	
+      "LogName": "NPC Gift Tastes",
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "Entries": {
+        "Billie": "This is pretty lit not gonna lie/60 80 84 103 127 192/You know me so well! thank you, I like this!/211 224 64/I'm gonna be straight with ya, I don't like this... but, don't feel too bad, Finneas likes it. ^.^/72/Alright dude, go trip over a knife/92/Thanks i guess..../ "
+		
+      }
+    },
+	
+    {
+	
+      "LogName": "Animations",
+      "Action": "EditData",
+      "Target": "Data/animationDescriptions",
+      "Entries": {
+			"music": "24/24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 25 26 26 26 27 27 26 26 27 27 26 25 24 24 24 24 24 24 24 24 24 24 24 24/24"
+			
+      }
+    },
+	
+	{
+
+      "LogName": "Schedule Dialogue",
+      "Action": "Load",
+      "Target": "Strings/schedules/Billie",
+      "FromFile": "assets/schedules/ScheduleDialogue.json"
+
+    },
+
+    {
+	
+      "LogName": "NPC Sprite",
+      "Action": "Load",
+      "Target": "Characters/Billie",
+      "FromFile": "assets/img/Sprite.png",
+      "Entries": null
+    },
+    {
+      "LogName": "NPC Portrait",
+      "Action": "Load",
+      "Target": "Portraits/Billie",
+      "FromFile": "assets/img/Billie.png",
+      "Entries": null
+    },
+    {
+      "LogName": "Schedule",
+      "Action": "Load",
+      "Target": "Characters/schedules/Billie",
+      "FromFile": "assets/schedules/Schedule.json",
+      "Entries": null
+    },
+    {
+      "LogName": "Dialogue",
+      "Action": "Load",
+      "Target": "Characters/Dialogue/Billie",
+      "FromFile": "assets/dialogue/Dialogue.json",
+      "Entries": null
+    },
+    {
+      "LogName": "Engagement Dialogue",
+      "Action": "EditData",
+      "Target": "Data/EngagementDialogue",
+      "FromFile": null,
+      "Entries": {
+        "Billie0": "Our wedding is soon! I'm so excited for this!$1",
+        "Billie1": "AAAAAAAAAAAAHHHHH our wedding is TOMORRROWWW, b READY to be stuck with me $4"
+      }
+    },
+    {
+      "LogName": "Marriage Dialogue",
+      "Action": "Load",
+      "Target": "Characters/Dialogue/MarriageDialogueBillie",
+      "FromFile": "assets/dialogue/MarriageDialogue.json",
+      "Entries": null
+    }
+  ]
+}
