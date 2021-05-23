@@ -32,7 +32,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.addClose = new System.Windows.Forms.Button();
             this.addInitial = new System.Windows.Forms.Button();
-            this.seeFrame = new System.Windows.Forms.Button();
             this.addFrame = new System.Windows.Forms.Button();
             this.frameCount = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,17 +57,21 @@
             this.delSelected = new System.Windows.Forms.Button();
             this.clearList = new System.Windows.Forms.Button();
             this.recentLoad = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.testAnimation = new System.Windows.Forms.PictureBox();
+            this.PlayButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.frameCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.testAnimation)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.addClose);
             this.groupBox1.Controls.Add(this.addInitial);
-            this.groupBox1.Controls.Add(this.seeFrame);
             this.groupBox1.Controls.Add(this.addFrame);
             this.groupBox1.Controls.Add(this.frameCount);
             this.groupBox1.Controls.Add(this.label1);
@@ -92,7 +95,7 @@
             // 
             // addInitial
             // 
-            this.addInitial.Location = new System.Drawing.Point(79, 72);
+            this.addInitial.Location = new System.Drawing.Point(79, 49);
             this.addInitial.Name = "addInitial";
             this.addInitial.Size = new System.Drawing.Size(85, 23);
             this.addInitial.TabIndex = 9;
@@ -100,19 +103,9 @@
             this.addInitial.UseVisualStyleBackColor = true;
             this.addInitial.Click += new System.EventHandler(this.addInitial_Click);
             // 
-            // seeFrame
-            // 
-            this.seeFrame.Location = new System.Drawing.Point(79, 43);
-            this.seeFrame.Name = "seeFrame";
-            this.seeFrame.Size = new System.Drawing.Size(85, 23);
-            this.seeFrame.TabIndex = 8;
-            this.seeFrame.Text = "<- View Frame";
-            this.seeFrame.UseVisualStyleBackColor = true;
-            this.seeFrame.Click += new System.EventHandler(this.seeFrame_Click);
-            // 
             // addFrame
             // 
-            this.addFrame.Location = new System.Drawing.Point(79, 101);
+            this.addFrame.Location = new System.Drawing.Point(79, 90);
             this.addFrame.Name = "addFrame";
             this.addFrame.Size = new System.Drawing.Size(85, 23);
             this.addFrame.TabIndex = 6;
@@ -131,6 +124,7 @@
             this.frameCount.Name = "frameCount";
             this.frameCount.Size = new System.Drawing.Size(44, 20);
             this.frameCount.TabIndex = 2;
+            this.frameCount.ValueChanged += new System.EventHandler(this.frameCount_ValueChanged);
             // 
             // label1
             // 
@@ -360,11 +354,45 @@
             this.recentLoad.UseVisualStyleBackColor = true;
             this.recentLoad.Click += new System.EventHandler(this.recentLoad_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.PlayButton);
+            this.groupBox3.Controls.Add(this.testAnimation);
+            this.groupBox3.Location = new System.Drawing.Point(571, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(95, 212);
+            this.groupBox3.TabIndex = 11;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Test Animation";
+            // 
+            // testAnimation
+            // 
+            this.testAnimation.BackColor = System.Drawing.SystemColors.Highlight;
+            this.testAnimation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.testAnimation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.testAnimation.Location = new System.Drawing.Point(16, 19);
+            this.testAnimation.Name = "testAnimation";
+            this.testAnimation.Size = new System.Drawing.Size(64, 128);
+            this.testAnimation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.testAnimation.TabIndex = 11;
+            this.testAnimation.TabStop = false;
+            // 
+            // PlayButton
+            // 
+            this.PlayButton.Location = new System.Drawing.Point(16, 163);
+            this.PlayButton.Name = "PlayButton";
+            this.PlayButton.Size = new System.Drawing.Size(64, 23);
+            this.PlayButton.TabIndex = 12;
+            this.PlayButton.Text = "Play Animation";
+            this.PlayButton.UseVisualStyleBackColor = true;
+            this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
+            // 
             // AnimationStation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 443);
+            this.ClientSize = new System.Drawing.Size(675, 443);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.recentLoad);
             this.Controls.Add(this.clearList);
             this.Controls.Add(this.delSelected);
@@ -383,6 +411,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.testAnimation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,7 +438,6 @@
         private System.Windows.Forms.Button delSelected;
         private System.Windows.Forms.Button clearList;
         private System.Windows.Forms.Button recentLoad;
-        private System.Windows.Forms.Button seeFrame;
         private System.Windows.Forms.Button addClose;
         private System.Windows.Forms.Button addInitial;
         private System.Windows.Forms.Label label5;
@@ -419,5 +448,8 @@
         private System.Windows.Forms.Button endDelete;
         private System.Windows.Forms.Button openClear;
         private System.Windows.Forms.Button openDel;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button PlayButton;
+        private System.Windows.Forms.PictureBox testAnimation;
     }
 }

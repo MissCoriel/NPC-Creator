@@ -40,6 +40,16 @@
             this.addDialogList = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.dialogBody = new System.Windows.Forms.TextBox();
+            this.petName = new System.Windows.Forms.Button();
+            this.addFav = new System.Windows.Forms.Button();
+            this.addSpouse = new System.Windows.Forms.Button();
+            this.kid2 = new System.Windows.Forms.Button();
+            this.firstKid = new System.Windows.Forms.Button();
+            this.addGender = new System.Windows.Forms.Button();
+            this.addFarm = new System.Windows.Forms.Button();
+            this.addFarmer = new System.Windows.Forms.Button();
+            this.fullBreak = new System.Windows.Forms.Button();
+            this.addBreak = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.submitQuestion = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -66,27 +76,26 @@
             this.positiveID = new System.Windows.Forms.NumericUpDown();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.loadMarriage = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.createMarriageFile = new System.Windows.Forms.Button();
             this.createDialogFile = new System.Windows.Forms.Button();
             this.removeDialogue = new System.Windows.Forms.Button();
             this.listDialogue = new System.Windows.Forms.ListBox();
             this.portraitSample = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.portFrame = new System.Windows.Forms.NumericUpDown();
-            this.showPort = new System.Windows.Forms.Button();
-            this.addBreak = new System.Windows.Forms.Button();
-            this.fullBreak = new System.Windows.Forms.Button();
-            this.addFarmer = new System.Windows.Forms.Button();
-            this.addFarm = new System.Windows.Forms.Button();
-            this.addGender = new System.Windows.Forms.Button();
-            this.firstKid = new System.Windows.Forms.Button();
-            this.kid2 = new System.Windows.Forms.Button();
-            this.addSpouse = new System.Windows.Forms.Button();
-            this.addFav = new System.Windows.Forms.Button();
-            this.petName = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.exportDialogFile = new System.Windows.Forms.Button();
+            this.ChanceCommand = new System.Windows.Forms.Button();
+            this.StateCommand = new System.Windows.Forms.Button();
+            this.FastQuestion = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.OneTime = new System.Windows.Forms.Button();
+            this.AddItems = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.ShowBook = new System.Windows.Forms.Button();
+            this.CreateOverhaul = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -97,6 +106,7 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.portraitSample)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.portFrame)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // keyList
@@ -125,7 +135,7 @@
             // marriageDialog
             // 
             this.marriageDialog.AutoSize = true;
-            this.marriageDialog.Location = new System.Drawing.Point(245, 19);
+            this.marriageDialog.Location = new System.Drawing.Point(258, 19);
             this.marriageDialog.Name = "marriageDialog";
             this.marriageDialog.Size = new System.Drawing.Size(66, 17);
             this.marriageDialog.TabIndex = 29;
@@ -174,16 +184,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.petName);
-            this.groupBox2.Controls.Add(this.addFav);
-            this.groupBox2.Controls.Add(this.addSpouse);
-            this.groupBox2.Controls.Add(this.kid2);
-            this.groupBox2.Controls.Add(this.firstKid);
-            this.groupBox2.Controls.Add(this.addGender);
-            this.groupBox2.Controls.Add(this.addFarm);
-            this.groupBox2.Controls.Add(this.addFarmer);
-            this.groupBox2.Controls.Add(this.fullBreak);
-            this.groupBox2.Controls.Add(this.addBreak);
             this.groupBox2.Controls.Add(this.addDialogList);
             this.groupBox2.Controls.Add(this.linkLabel1);
             this.groupBox2.Controls.Add(this.dialogBody);
@@ -196,7 +196,7 @@
             // 
             // addDialogList
             // 
-            this.addDialogList.Location = new System.Drawing.Point(970, 81);
+            this.addDialogList.Location = new System.Drawing.Point(498, 74);
             this.addDialogList.Name = "addDialogList";
             this.addDialogList.Size = new System.Drawing.Size(117, 23);
             this.addDialogList.TabIndex = 2;
@@ -221,6 +221,106 @@
             this.dialogBody.Name = "dialogBody";
             this.dialogBody.Size = new System.Drawing.Size(1087, 20);
             this.dialogBody.TabIndex = 0;
+            // 
+            // petName
+            // 
+            this.petName.Location = new System.Drawing.Point(167, 48);
+            this.petName.Name = "petName";
+            this.petName.Size = new System.Drawing.Size(75, 23);
+            this.petName.TabIndex = 37;
+            this.petName.Text = "Pet";
+            this.petName.UseVisualStyleBackColor = true;
+            this.petName.Click += new System.EventHandler(this.petName_Click);
+            // 
+            // addFav
+            // 
+            this.addFav.Location = new System.Drawing.Point(87, 48);
+            this.addFav.Name = "addFav";
+            this.addFav.Size = new System.Drawing.Size(75, 23);
+            this.addFav.TabIndex = 36;
+            this.addFav.Text = "Favorite";
+            this.addFav.UseVisualStyleBackColor = true;
+            this.addFav.Click += new System.EventHandler(this.addFav_Click);
+            // 
+            // addSpouse
+            // 
+            this.addSpouse.Location = new System.Drawing.Point(6, 48);
+            this.addSpouse.Name = "addSpouse";
+            this.addSpouse.Size = new System.Drawing.Size(75, 23);
+            this.addSpouse.TabIndex = 35;
+            this.addSpouse.Text = "Spouse";
+            this.addSpouse.UseVisualStyleBackColor = true;
+            this.addSpouse.Click += new System.EventHandler(this.addSpouse_Click);
+            // 
+            // kid2
+            // 
+            this.kid2.Location = new System.Drawing.Point(496, 19);
+            this.kid2.Name = "kid2";
+            this.kid2.Size = new System.Drawing.Size(75, 23);
+            this.kid2.TabIndex = 34;
+            this.kid2.Text = "2nd Child";
+            this.kid2.UseVisualStyleBackColor = true;
+            this.kid2.Click += new System.EventHandler(this.kid2_Click);
+            // 
+            // firstKid
+            // 
+            this.firstKid.Location = new System.Drawing.Point(415, 19);
+            this.firstKid.Name = "firstKid";
+            this.firstKid.Size = new System.Drawing.Size(75, 23);
+            this.firstKid.TabIndex = 33;
+            this.firstKid.Text = "First Child";
+            this.firstKid.UseVisualStyleBackColor = true;
+            this.firstKid.Click += new System.EventHandler(this.firstKid_Click);
+            // 
+            // addGender
+            // 
+            this.addGender.Location = new System.Drawing.Point(334, 19);
+            this.addGender.Name = "addGender";
+            this.addGender.Size = new System.Drawing.Size(75, 23);
+            this.addGender.TabIndex = 32;
+            this.addGender.Text = "Gender Split";
+            this.addGender.UseVisualStyleBackColor = true;
+            this.addGender.Click += new System.EventHandler(this.addGender_Click);
+            // 
+            // addFarm
+            // 
+            this.addFarm.Location = new System.Drawing.Point(249, 19);
+            this.addFarm.Name = "addFarm";
+            this.addFarm.Size = new System.Drawing.Size(75, 23);
+            this.addFarm.TabIndex = 31;
+            this.addFarm.Text = "Farm";
+            this.addFarm.UseVisualStyleBackColor = true;
+            this.addFarm.Click += new System.EventHandler(this.addFarm_Click);
+            // 
+            // addFarmer
+            // 
+            this.addFarmer.Location = new System.Drawing.Point(168, 19);
+            this.addFarmer.Name = "addFarmer";
+            this.addFarmer.Size = new System.Drawing.Size(75, 23);
+            this.addFarmer.TabIndex = 30;
+            this.addFarmer.Text = "Farmer";
+            this.addFarmer.UseVisualStyleBackColor = true;
+            this.addFarmer.Click += new System.EventHandler(this.addFarmer_Click);
+            // 
+            // fullBreak
+            // 
+            this.fullBreak.Location = new System.Drawing.Point(87, 19);
+            this.fullBreak.Name = "fullBreak";
+            this.fullBreak.Size = new System.Drawing.Size(75, 23);
+            this.fullBreak.TabIndex = 29;
+            this.fullBreak.Text = "Full Break";
+            this.fullBreak.UseVisualStyleBackColor = true;
+            this.fullBreak.Click += new System.EventHandler(this.fullBreak_Click);
+            // 
+            // addBreak
+            // 
+            this.addBreak.Location = new System.Drawing.Point(6, 19);
+            this.addBreak.Name = "addBreak";
+            this.addBreak.Size = new System.Drawing.Size(75, 23);
+            this.addBreak.TabIndex = 28;
+            this.addBreak.Text = "Line Break";
+            this.addBreak.UseVisualStyleBackColor = true;
+            this.addBreak.Click += new System.EventHandler(this.addBreak_Click);
             // 
             // groupBox3
             // 
@@ -247,7 +347,7 @@
             this.groupBox3.Controls.Add(this.fallBackID);
             this.groupBox3.Controls.Add(this.negativeID);
             this.groupBox3.Controls.Add(this.positiveID);
-            this.groupBox3.Location = new System.Drawing.Point(12, 141);
+            this.groupBox3.Location = new System.Drawing.Point(12, 275);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(597, 381);
             this.groupBox3.TabIndex = 3;
@@ -492,10 +592,10 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.CreateOverhaul);
+            this.groupBox4.Controls.Add(this.exportDialogFile);
             this.groupBox4.Controls.Add(this.button2);
-            this.groupBox4.Controls.Add(this.loadMarriage);
             this.groupBox4.Controls.Add(this.button1);
-            this.groupBox4.Controls.Add(this.createMarriageFile);
             this.groupBox4.Controls.Add(this.createDialogFile);
             this.groupBox4.Controls.Add(this.removeDialogue);
             this.groupBox4.Controls.Add(this.listDialogue);
@@ -516,43 +616,23 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // loadMarriage
-            // 
-            this.loadMarriage.Location = new System.Drawing.Point(724, 253);
-            this.loadMarriage.Name = "loadMarriage";
-            this.loadMarriage.Size = new System.Drawing.Size(123, 23);
-            this.loadMarriage.TabIndex = 24;
-            this.loadMarriage.Text = "Load Marriage Dialogue";
-            this.loadMarriage.UseVisualStyleBackColor = true;
-            this.loadMarriage.Click += new System.EventHandler(this.LoadMarriage_Click);
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(724, 115);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 23);
             this.button1.TabIndex = 24;
-            this.button1.Text = "Load Recent";
+            this.button1.Text = "Load Dialogue..";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // createMarriageFile
-            // 
-            this.createMarriageFile.Location = new System.Drawing.Point(724, 325);
-            this.createMarriageFile.Name = "createMarriageFile";
-            this.createMarriageFile.Size = new System.Drawing.Size(123, 23);
-            this.createMarriageFile.TabIndex = 24;
-            this.createMarriageFile.Text = "Generate Marriage Dialogue";
-            this.createMarriageFile.UseVisualStyleBackColor = true;
-            this.createMarriageFile.Click += new System.EventHandler(this.CreateMarriageFile_Click);
-            // 
             // createDialogFile
             // 
-            this.createDialogFile.Location = new System.Drawing.Point(724, 181);
+            this.createDialogFile.Location = new System.Drawing.Point(724, 159);
             this.createDialogFile.Name = "createDialogFile";
             this.createDialogFile.Size = new System.Drawing.Size(123, 23);
             this.createDialogFile.TabIndex = 2;
-            this.createDialogFile.Text = "Generate Dialogue";
+            this.createDialogFile.Text = "Save Dialogue";
             this.createDialogFile.UseVisualStyleBackColor = true;
             this.createDialogFile.Click += new System.EventHandler(this.CreateDialogFile_Click);
             // 
@@ -600,116 +680,7 @@
             this.portFrame.Name = "portFrame";
             this.portFrame.Size = new System.Drawing.Size(62, 20);
             this.portFrame.TabIndex = 26;
-            // 
-            // showPort
-            // 
-            this.showPort.Location = new System.Drawing.Point(823, 538);
-            this.showPort.Name = "showPort";
-            this.showPort.Size = new System.Drawing.Size(101, 23);
-            this.showPort.TabIndex = 27;
-            this.showPort.Text = "View Portrait";
-            this.showPort.UseVisualStyleBackColor = true;
-            this.showPort.Click += new System.EventHandler(this.showPort_Click);
-            // 
-            // addBreak
-            // 
-            this.addBreak.Location = new System.Drawing.Point(109, 81);
-            this.addBreak.Name = "addBreak";
-            this.addBreak.Size = new System.Drawing.Size(75, 23);
-            this.addBreak.TabIndex = 28;
-            this.addBreak.Text = "Line Break";
-            this.addBreak.UseVisualStyleBackColor = true;
-            this.addBreak.Click += new System.EventHandler(this.addBreak_Click);
-            // 
-            // fullBreak
-            // 
-            this.fullBreak.Location = new System.Drawing.Point(190, 81);
-            this.fullBreak.Name = "fullBreak";
-            this.fullBreak.Size = new System.Drawing.Size(75, 23);
-            this.fullBreak.TabIndex = 29;
-            this.fullBreak.Text = "Full Break";
-            this.fullBreak.UseVisualStyleBackColor = true;
-            this.fullBreak.Click += new System.EventHandler(this.fullBreak_Click);
-            // 
-            // addFarmer
-            // 
-            this.addFarmer.Location = new System.Drawing.Point(271, 81);
-            this.addFarmer.Name = "addFarmer";
-            this.addFarmer.Size = new System.Drawing.Size(75, 23);
-            this.addFarmer.TabIndex = 30;
-            this.addFarmer.Text = "Farmer";
-            this.addFarmer.UseVisualStyleBackColor = true;
-            this.addFarmer.Click += new System.EventHandler(this.addFarmer_Click);
-            // 
-            // addFarm
-            // 
-            this.addFarm.Location = new System.Drawing.Point(352, 81);
-            this.addFarm.Name = "addFarm";
-            this.addFarm.Size = new System.Drawing.Size(75, 23);
-            this.addFarm.TabIndex = 31;
-            this.addFarm.Text = "Farm";
-            this.addFarm.UseVisualStyleBackColor = true;
-            this.addFarm.Click += new System.EventHandler(this.addFarm_Click);
-            // 
-            // addGender
-            // 
-            this.addGender.Location = new System.Drawing.Point(433, 81);
-            this.addGender.Name = "addGender";
-            this.addGender.Size = new System.Drawing.Size(75, 23);
-            this.addGender.TabIndex = 32;
-            this.addGender.Text = "Gender Split";
-            this.addGender.UseVisualStyleBackColor = true;
-            this.addGender.Click += new System.EventHandler(this.addGender_Click);
-            // 
-            // firstKid
-            // 
-            this.firstKid.Location = new System.Drawing.Point(514, 81);
-            this.firstKid.Name = "firstKid";
-            this.firstKid.Size = new System.Drawing.Size(75, 23);
-            this.firstKid.TabIndex = 33;
-            this.firstKid.Text = "First Child";
-            this.firstKid.UseVisualStyleBackColor = true;
-            this.firstKid.Click += new System.EventHandler(this.firstKid_Click);
-            // 
-            // kid2
-            // 
-            this.kid2.Location = new System.Drawing.Point(595, 81);
-            this.kid2.Name = "kid2";
-            this.kid2.Size = new System.Drawing.Size(75, 23);
-            this.kid2.TabIndex = 34;
-            this.kid2.Text = "2nd Child";
-            this.kid2.UseVisualStyleBackColor = true;
-            this.kid2.Click += new System.EventHandler(this.kid2_Click);
-            // 
-            // addSpouse
-            // 
-            this.addSpouse.Location = new System.Drawing.Point(676, 81);
-            this.addSpouse.Name = "addSpouse";
-            this.addSpouse.Size = new System.Drawing.Size(75, 23);
-            this.addSpouse.TabIndex = 35;
-            this.addSpouse.Text = "Spouse";
-            this.addSpouse.UseVisualStyleBackColor = true;
-            this.addSpouse.Click += new System.EventHandler(this.addSpouse_Click);
-            // 
-            // addFav
-            // 
-            this.addFav.Location = new System.Drawing.Point(757, 81);
-            this.addFav.Name = "addFav";
-            this.addFav.Size = new System.Drawing.Size(75, 23);
-            this.addFav.TabIndex = 36;
-            this.addFav.Text = "Favorite";
-            this.addFav.UseVisualStyleBackColor = true;
-            this.addFav.Click += new System.EventHandler(this.addFav_Click);
-            // 
-            // petName
-            // 
-            this.petName.Location = new System.Drawing.Point(838, 81);
-            this.petName.Name = "petName";
-            this.petName.Size = new System.Drawing.Size(75, 23);
-            this.petName.TabIndex = 37;
-            this.petName.Text = "Pet";
-            this.petName.UseVisualStyleBackColor = true;
-            this.petName.Click += new System.EventHandler(this.petName_Click);
+            this.portFrame.ValueChanged += new System.EventHandler(this.portFrame_ValueChanged);
             // 
             // button3
             // 
@@ -721,6 +692,143 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.ShowBook);
+            this.groupBox5.Controls.Add(this.button5);
+            this.groupBox5.Controls.Add(this.AddItems);
+            this.groupBox5.Controls.Add(this.OneTime);
+            this.groupBox5.Controls.Add(this.button4);
+            this.groupBox5.Controls.Add(this.FastQuestion);
+            this.groupBox5.Controls.Add(this.StateCommand);
+            this.groupBox5.Controls.Add(this.ChanceCommand);
+            this.groupBox5.Controls.Add(this.petName);
+            this.groupBox5.Controls.Add(this.addBreak);
+            this.groupBox5.Controls.Add(this.addFav);
+            this.groupBox5.Controls.Add(this.fullBreak);
+            this.groupBox5.Controls.Add(this.addSpouse);
+            this.groupBox5.Controls.Add(this.addFarmer);
+            this.groupBox5.Controls.Add(this.kid2);
+            this.groupBox5.Controls.Add(this.addFarm);
+            this.groupBox5.Controls.Add(this.firstKid);
+            this.groupBox5.Controls.Add(this.addGender);
+            this.groupBox5.Location = new System.Drawing.Point(12, 141);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(597, 128);
+            this.groupBox5.TabIndex = 38;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Dialogue Commands";
+            // 
+            // exportDialogFile
+            // 
+            this.exportDialogFile.Location = new System.Drawing.Point(724, 202);
+            this.exportDialogFile.Name = "exportDialogFile";
+            this.exportDialogFile.Size = new System.Drawing.Size(123, 23);
+            this.exportDialogFile.TabIndex = 26;
+            this.exportDialogFile.Text = "Export";
+            this.exportDialogFile.UseVisualStyleBackColor = true;
+            this.exportDialogFile.Click += new System.EventHandler(this.exportDialogFile_Click);
+            // 
+            // ChanceCommand
+            // 
+            this.ChanceCommand.Location = new System.Drawing.Point(87, 77);
+            this.ChanceCommand.Name = "ChanceCommand";
+            this.ChanceCommand.Size = new System.Drawing.Size(75, 23);
+            this.ChanceCommand.TabIndex = 38;
+            this.ChanceCommand.Text = "Chance";
+            this.ChanceCommand.UseVisualStyleBackColor = true;
+            this.ChanceCommand.Click += new System.EventHandler(this.ChanceCommand_Click);
+            // 
+            // StateCommand
+            // 
+            this.StateCommand.Location = new System.Drawing.Point(168, 77);
+            this.StateCommand.Name = "StateCommand";
+            this.StateCommand.Size = new System.Drawing.Size(75, 23);
+            this.StateCommand.TabIndex = 39;
+            this.StateCommand.Text = "Check State";
+            this.StateCommand.UseVisualStyleBackColor = true;
+            this.StateCommand.Click += new System.EventHandler(this.StateCommand_Click);
+            // 
+            // FastQuestion
+            // 
+            this.FastQuestion.Location = new System.Drawing.Point(249, 77);
+            this.FastQuestion.Name = "FastQuestion";
+            this.FastQuestion.Size = new System.Drawing.Size(75, 23);
+            this.FastQuestion.TabIndex = 40;
+            this.FastQuestion.Text = "Fast ?";
+            this.FastQuestion.UseVisualStyleBackColor = true;
+            this.FastQuestion.Click += new System.EventHandler(this.FastQuestion_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(415, 48);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 41;
+            this.button4.Text = "Prerequisite";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // OneTime
+            // 
+            this.OneTime.Location = new System.Drawing.Point(496, 48);
+            this.OneTime.Name = "OneTime";
+            this.OneTime.Size = new System.Drawing.Size(75, 23);
+            this.OneTime.TabIndex = 3;
+            this.OneTime.Text = "1-time";
+            this.OneTime.UseVisualStyleBackColor = true;
+            this.OneTime.Click += new System.EventHandler(this.OneTime_Click);
+            // 
+            // AddItems
+            // 
+            this.AddItems.Location = new System.Drawing.Point(6, 77);
+            this.AddItems.Name = "AddItems";
+            this.AddItems.Size = new System.Drawing.Size(75, 23);
+            this.AddItems.TabIndex = 3;
+            this.AddItems.Text = "Items";
+            this.AddItems.UseVisualStyleBackColor = true;
+            this.AddItems.Click += new System.EventHandler(this.AddItems_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(249, 48);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 42;
+            this.button5.Text = "Show Time";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // ShowBook
+            // 
+            this.ShowBook.Location = new System.Drawing.Point(334, 48);
+            this.ShowBook.Name = "ShowBook";
+            this.ShowBook.Size = new System.Drawing.Size(75, 23);
+            this.ShowBook.TabIndex = 43;
+            this.ShowBook.Text = "Elliott\'s Book";
+            this.ShowBook.UseVisualStyleBackColor = true;
+            this.ShowBook.Click += new System.EventHandler(this.ShowBook_Click);
+            // 
+            // CreateOverhaul
+            // 
+            this.CreateOverhaul.Location = new System.Drawing.Point(724, 246);
+            this.CreateOverhaul.Name = "CreateOverhaul";
+            this.CreateOverhaul.Size = new System.Drawing.Size(123, 23);
+            this.CreateOverhaul.TabIndex = 23;
+            this.CreateOverhaul.Text = "Create Overhaul";
+            this.CreateOverhaul.UseVisualStyleBackColor = true;
+            this.CreateOverhaul.Click += new System.EventHandler(this.CreateOverhaul_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(867, 611);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(117, 23);
+            this.button6.TabIndex = 30;
+            this.button6.Text = "Load Portrait";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // dialogueBoutique
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -728,8 +836,9 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1480, 659);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.showPort);
             this.Controls.Add(this.portFrame);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.portraitSample);
@@ -753,6 +862,7 @@
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.portraitSample)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.portFrame)).EndInit();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -794,17 +904,14 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button submitQuestion;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button createMarriageFile;
         private System.Windows.Forms.Button createDialogFile;
         private System.Windows.Forms.Button removeDialogue;
         private System.Windows.Forms.ListBox listDialogue;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button loadMarriage;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox portraitSample;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown portFrame;
-        private System.Windows.Forms.Button showPort;
         private System.Windows.Forms.RadioButton marriageDialog;
         private System.Windows.Forms.RadioButton regularDialog;
         private System.Windows.Forms.Button addBreak;
@@ -818,5 +925,17 @@
         private System.Windows.Forms.Button addFarmer;
         private System.Windows.Forms.Button fullBreak;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button exportDialogFile;
+        private System.Windows.Forms.Button ChanceCommand;
+        private System.Windows.Forms.Button StateCommand;
+        private System.Windows.Forms.Button FastQuestion;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button OneTime;
+        private System.Windows.Forms.Button AddItems;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button ShowBook;
+        private System.Windows.Forms.Button CreateOverhaul;
+        private System.Windows.Forms.Button button6;
     }
 }
