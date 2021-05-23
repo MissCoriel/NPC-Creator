@@ -1002,13 +1002,13 @@
             // 
             // createEvent
             // 
-            this.createEvent.Enabled = false;
             this.createEvent.Location = new System.Drawing.Point(654, 12);
             this.createEvent.Name = "createEvent";
             this.createEvent.Size = new System.Drawing.Size(106, 23);
             this.createEvent.TabIndex = 47;
             this.createEvent.Text = "Create Event";
             this.createEvent.UseVisualStyleBackColor = true;
+            this.createEvent.Click += new System.EventHandler(this.createEvent_Click);
             // 
             // Form1
             // 

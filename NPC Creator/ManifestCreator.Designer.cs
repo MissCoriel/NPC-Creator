@@ -44,6 +44,8 @@
             this.modAuthor = new System.Windows.Forms.TextBox();
             this.modName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.uniqueMod = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bugFix)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minorVersion)).BeginInit();
@@ -52,6 +54,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.uniqueMod);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.uniqueID);
             this.groupBox1.Controls.Add(this.label7);
@@ -88,9 +92,9 @@
             // 
             this.uniqueID.Location = new System.Drawing.Point(68, 133);
             this.uniqueID.Name = "uniqueID";
-            this.uniqueID.Size = new System.Drawing.Size(239, 20);
+            this.uniqueID.Size = new System.Drawing.Size(73, 20);
             this.uniqueID.TabIndex = 12;
-            this.uniqueID.Text = "Author.Mod";
+            this.uniqueID.Text = "Author";
             // 
             // label7
             // 
@@ -198,6 +202,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mod Name";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(147, 138);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(10, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = ".";
+            // 
+            // uniqueMod
+            // 
+            this.uniqueMod.Location = new System.Drawing.Point(163, 133);
+            this.uniqueMod.Name = "uniqueMod";
+            this.uniqueMod.Size = new System.Drawing.Size(100, 20);
+            this.uniqueMod.TabIndex = 15;
+            this.uniqueMod.Text = "Mod";
+            // 
             // manifestCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,5 +256,7 @@
         private System.Windows.Forms.TextBox modName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox uniqueMod;
+        private System.Windows.Forms.Label label8;
     }
 }

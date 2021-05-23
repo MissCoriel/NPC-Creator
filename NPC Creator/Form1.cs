@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Drawing.Imaging;
+using System.Windows.Forms.VisualStyles;
 
 namespace NPC_Creator
 {
@@ -23,6 +24,9 @@ namespace NPC_Creator
         private PatchVariable[] mainPatch;
         Bitmap spriteView;
         Bitmap portView;
+        PatchVariable patchEvent = new PatchVariable();
+        private List<string> filenames = new List<string>();
+        private string[] patchwork;
         //private NPCDisposition NPCDispositionForm;
 
 
@@ -91,7 +95,7 @@ namespace NPC_Creator
                 this.dateLabel.Text = "Not Datable";
                 groupBox9.Enabled = false;
             }
-
+            
         }
         // GetTileArea handles the graphics
         public Rectangle GetTileArea(int tileIndex, int tileWidth, int tileHeight, int sheetWidthInTiles)
@@ -121,6 +125,7 @@ namespace NPC_Creator
         //Determines how the content.json will be handled depending on the Disposition information.
         private void GenerateNPC_Click(object sender, EventArgs e)
         {
+
             //Verify datable
             if (File.Exists(Environment.CurrentDirectory + $"\\Save Data\\{npcNewSystemName.Text}_saveData\\canDate.date"))
             {
@@ -150,6 +155,21 @@ namespace NPC_Creator
                         Form1.exportSystem = this.projectName;
                         xrRem.ShowDialog();
                     }
+                    //Check for Event Files.. if so.. create a list
+                    string[] files = Directory.GetFiles(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\Events");
+                    
+                    foreach (string eventFile in files)
+                    {
+                        string parse = "Data/Events/" + Path.GetFileNameWithoutExtension(eventFile);
+                        filenames.Add(parse);
+                    }
+                    patchEvent = new PatchVariable
+                    {
+                        LogName = "Events",
+                        Action = "Load",
+                        Target = string.Join(", ", filenames),
+                        FromFile = "assets/Events/{{TargetWithoutPath}}.json"
+                    };
                     PatchVariable patchDisposition = new PatchVariable
                     {
                         LogName = "NPC Manifestation",
@@ -188,7 +208,7 @@ namespace NPC_Creator
                         LogName = "Schedule",
                         Action = "Load",
                         Target = $"Characters/schedules/{projectName}",
-                        FromFile = $"assets/schedules/Schedule.json",
+                        FromFile = $"assets/schedules/schedule.json",
                     };
                     PatchVariable patchSchDia = new PatchVariable
                     {
@@ -230,83 +250,31 @@ namespace NPC_Creator
                         Target = $"Characters/Dialogue/MarriageDialogue{projectName}",
                         FromFile = "assets/dialogue/MarriageDialogue.json",
                     };
-
+                    
+                    List<PatchVariable> createPatch = new List<PatchVariable> { patchDisposition, patchGiftTaste, patchSprite, patchPortrait, patchSchedule, patchDialogue, patchEngagement, patchMarriage };
+                    if (File.Exists($"Export/[CP]{projectName}/assets/anim/Animations.json"))
+                        createPatch.Add(patchAnim);
+                    if (File.Exists($"Export/[CP]{projectName}/assets/schedules/scheduleDialogue.json"))
+                        createPatch.Add(patchSchDia);
                     if (dateCheck == "datable")
                     {
-                        if (File.Exists($"Export/[CP]{projectName}/assets/anim/Animations.json") && File.Exists($"Export/[CP]{projectName}/assets/schedules/scheduleDialogue.json"))
-                        {
-                            mainPatch = new PatchVariable[] { patchDisposition, patchGiftTaste, patchSprite, patchPortrait, patchSchedule, patchDialogue, patchEngagement, patchMarriage, patchAnim, patchSchDia };
-
-
-                        }
-                        else if (File.Exists($"Export/[CP]{projectName}/assets/anim/Animations.json"))
-                        {
-                            mainPatch = new PatchVariable[] { patchDisposition, patchGiftTaste, patchSprite, patchPortrait, patchSchedule, patchDialogue, patchEngagement, patchMarriage, patchAnim };
-
-                        }
-                        else if (File.Exists($"Export/[CP]{projectName}/assets/schedules/scheduleDialogue.json"))
-                        {
-                            mainPatch = new PatchVariable[] { patchDisposition, patchGiftTaste, patchSprite, patchPortrait, patchSchedule, patchDialogue, patchEngagement, patchMarriage, patchSchDia };
-
-                        }
-                        else
-                        {
-                            mainPatch = new PatchVariable[] { patchDisposition, patchGiftTaste, patchSprite, patchPortrait, patchSchedule, patchDialogue, patchEngagement, patchMarriage };
-
-                        }
-
-                        ContentVariable contentdatable = new ContentVariable
-                        {
-
-                            Format = "1.19.0",
-                            //Changes = new PatchVariable[] { patchDisposition, patchGiftTaste, patchSprite, patchPortrait, patchSchedule, patchDialogue, patchEngagement, patchMarriage }
-                            Changes = mainPatch
-                        };
-                        string path = Path.Combine($"Export/[CP]{projectName}", "content.json");
-                        File.WriteAllText(path, JsonConvert.SerializeObject(contentdatable, new JsonSerializerSettings { Formatting = Formatting.Indented, NullValueHandling = NullValueHandling.Ignore }));
-                        MessageBox.Show("Content.json Created! Remember if you press it again it will overwrite!", "NPC Created!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Process.Start(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}");
-
+                        createPatch.Add(patchMarriage);
+                        createPatch.Add(patchEngagement);
                     }
-                    else if (dateCheck == "non-datable")
+                    if (filenames.Count != 0)
+                        createPatch.Add(patchEvent);
+                    mainPatch = createPatch.ToArray();
+                    ContentVariable createJson = new ContentVariable
                     {
-                        if (File.Exists($"Export/[CP]{projectName}/assets/anim/Animations.json") && File.Exists($"Export/[CP]{projectName}/assets/schedules/scheduleDialogue.json"))
-                        {
-                            mainPatch = new PatchVariable[] { patchDisposition, patchGiftTaste, patchSprite, patchPortrait, patchSchedule, patchDialogue, patchAnim, patchSchDia };
 
-
-                        }
-                        else if (File.Exists($"Export/[CP]{projectName}/assets/anim/Animations.json") && !File.Exists($"Export/[CP]{projectName}/assets/schedules/scheduleDialogue.json"))
-                        {
-                            mainPatch = new PatchVariable[] { patchDisposition, patchGiftTaste, patchSprite, patchPortrait, patchSchedule, patchDialogue, patchAnim };
-
-                        }
-                        else if (File.Exists($"Export/[CP]{projectName}/assets/schedules/scheduleDialogue.json") && !File.Exists($"Export/[CP]{projectName}/assets/anim/Animations.json"))
-                        {
-                            mainPatch = new PatchVariable[] { patchDisposition, patchGiftTaste, patchSprite, patchPortrait, patchSchedule, patchDialogue, patchSchDia };
-
-                        }
-                        else
-                        {
-                            mainPatch = new PatchVariable[] { patchDisposition, patchGiftTaste, patchSprite, patchPortrait, patchSchedule, patchDialogue };
-
-                        }
-
-                        ContentVariable content = new ContentVariable
-                        {
-
-                            Format = "1.19.0",
-                            //Changes = new PatchVariable[] { patchDisposition, patchGiftTaste, patchSprite, patchDialogue, patchPortrait, patchSchedule }
-                            Changes = mainPatch
-                        };
-
-                        string path = Path.Combine($"Export/[CP]{projectName}", "content.json");
-                        File.WriteAllText(path, JsonConvert.SerializeObject(content, new JsonSerializerSettings { Formatting = Formatting.Indented, NullValueHandling = NullValueHandling.Ignore }));
-                        MessageBox.Show("Content.json Created! Remember if you press it again it will overwrite!", "NPC Created!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Process.Start(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}");
-
-                    }
-
+                        Format = "1.21.0",
+                        Changes = mainPatch
+                    };
+                    string path = Path.Combine($"Export/[CP]{projectName}", "content.json");
+                    File.WriteAllText(path, JsonConvert.SerializeObject(createJson, new JsonSerializerSettings { Formatting = Formatting.Indented, NullValueHandling = NullValueHandling.Ignore }));
+                    MessageBox.Show("Content.json Created! Remember if you press it again it will overwrite!", "NPC Created!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Process.Start(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}");
+                    createPatch.Clear();
                 }
             }
             else
@@ -343,29 +311,39 @@ namespace NPC_Creator
         private void LoveRemove_Click(object sender, EventArgs e)
         {
             npcLoveData.Items.Remove(npcLoveData.SelectedItem); //Removes an item if you fuxx3d
+            GiftListSave();
+
         }
 
 
         private void LikeRemove_Click(object sender, EventArgs e)
         {
             npcLikeData.Items.Remove(npcLikeData.SelectedItem);
+            GiftListSave();
+
         }
 
 
         private void DislikeRemove_Click(object sender, EventArgs e)
         {
             npcDislikeData.Items.Remove(npcDislikeData.SelectedItem);
+            GiftListSave();
+
         }
 
         private void HateRemove_Click(object sender, EventArgs e)
         {
             npcHateData.Items.Remove(npcHateData.SelectedItem);
+            GiftListSave();
+
         }
 
 
         private void NeutralRemove_Click(object sender, EventArgs e)
         {
             npcNeutralData.Items.Remove(npcNeutralData.SelectedItem);
+            GiftListSave();
+
         }
 
         private void AboutButton_Click(object sender, EventArgs e)
@@ -385,7 +363,12 @@ namespace NPC_Creator
             }
             else
             {
-                MessageBox.Show("Shouldn't you make the NPC Folder First?", "You accidentally a message box!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Cannot start without a project name!", "Opps!", MessageBoxButtons.OK);
+                /*MessageBox.Show("No Project Detected!\nEntering Independent Mode", "You accidentally a message box!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                scheduleStudio frRem = new scheduleStudio();
+                frRem.Text = "Schedule Studio - Independent Mode";
+                frRem.ShowDialog();*/
+
             }
         }
         //Create the NPC File Structure
@@ -396,6 +379,7 @@ namespace NPC_Creator
                 //Fist Clear old Entries
                 ResetAll();
                 CheckFileStructure();
+                //MessageBox.Show(npcNewSystemName.Text, "Test");
                 //Check if existing Project has a .date file; if not.. Advise to create Disposition
                 if (File.Exists(Environment.CurrentDirectory + $"\\Save Data\\{npcNewSystemName.Text}_saveData\\Dispo.json"))
                 {
@@ -460,9 +444,18 @@ namespace NPC_Creator
                 }
                 projectName = npcNewSystemName.Text;
                 File.WriteAllText(Environment.CurrentDirectory + $"\\Save Data\\{npcNewSystemName.Text}.npc", "");
-                if (Directory.Exists($"Export/[CP]{projectName}"))
+                if (Directory.Exists($"Export/[CP]{npcNewSystemName.Text}"))
                 {
-                    MessageBox.Show("Folder Exists!  If this is a NPC you were recently working on, DO NOT Generate NPC again unless you intent to overwrite the whole content.json", "Loading Existing NPC", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Project Loaded Successfully", "Loading NPC", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (!File.Exists(Environment.CurrentDirectory + $"\\Save Data\\{npcNewSystemName.Text}_saveData\\Dispo.json"))
+                    {
+                        MessageBox.Show("No Disposition found!!\nPlease create a Disposition for project.", "No NPCDisposition", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        NPCDisposition fRem = new NPCDisposition();
+                        Form1.exportSystem = projectName;
+                        fRem.FormClosed += NPCDisposition_FormClosed;
+                        fRem.ShowDialog();
+
+                    }
                     if (File.Exists(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\spritesheet.png"))
                     {
                         spriteFile.Text = "spritesheet.png";
@@ -506,17 +499,17 @@ namespace NPC_Creator
                 else
                 {
                     Directory.CreateDirectory("Export");
-                    Directory.CreateDirectory($"Export/[CP]{projectName}");
-                    Directory.CreateDirectory($"Export/[CP]{projectName}/assets");
-                    Directory.CreateDirectory($"Export/[CP]{projectName}/assets/anim");
-                    Directory.CreateDirectory($"Export/[CP]{projectName}/assets/img");
-                    Directory.CreateDirectory($"Export/[CP]{projectName}/assets/schedules");
-                    Directory.CreateDirectory($"Export/[CP]{projectName}/assets/dialogue");
-                    Directory.CreateDirectory($"Export/[CP]{projectName}/assets/disposition");
+                    Directory.CreateDirectory($"Export/[CP]{npcNewSystemName.Text}");
+                    Directory.CreateDirectory($"Export/[CP]{npcNewSystemName.Text}/assets");
+                    Directory.CreateDirectory($"Export/[CP]{npcNewSystemName.Text}/assets/anim");
+                    Directory.CreateDirectory($"Export/[CP]{npcNewSystemName.Text}/assets/img");
+                    Directory.CreateDirectory($"Export/[CP]{npcNewSystemName.Text}/assets/schedules");
+                    Directory.CreateDirectory($"Export/[CP]{npcNewSystemName.Text}/assets/dialogue");
+                    Directory.CreateDirectory($"Export/[CP]{npcNewSystemName.Text}/assets/disposition");
                     Directory.CreateDirectory($"Save Data");
-                    Directory.CreateDirectory($"Save Data/{projectName}_saveData");
-                    Directory.CreateDirectory($"Save Data/{projectName}_saveData/GiftTasteData");
-                    Directory.CreateDirectory($"Save Data/{projectName}_saveData/Engagement");
+                    Directory.CreateDirectory($"Save Data/{npcNewSystemName.Text}_saveData");
+                    Directory.CreateDirectory($"Save Data/{npcNewSystemName.Text}_saveData/GiftTasteData");
+                    Directory.CreateDirectory($"Save Data/{npcNewSystemName.Text}_saveData/Engagement");
 
 
 
@@ -545,7 +538,10 @@ namespace NPC_Creator
             }
             else
             {
-                MessageBox.Show("You forgot to make the NPC Folder!!", "DERP!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No NPC Project Loaded!\n Starting in Independant Mode!", "I need no man!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dialogueBoutique frRem = new dialogueBoutique();
+                frRem.Text = "Dialogue Boutique: Independant Mode";
+                frRem.ShowDialog();
             }
         }
         //Load Spritesheet
@@ -637,6 +633,7 @@ namespace NPC_Creator
             var item = (ItemDescription)itemsByID.SelectedItem;
             npcLikeData.Items.Add(item.Id);
             itemsByID.Items.Remove(itemsByID.SelectedItem);
+            GiftListSave();
         }
 
         private void sendtoLove_Click(object sender, EventArgs e)
@@ -644,7 +641,7 @@ namespace NPC_Creator
             var item = (ItemDescription)itemsByID.SelectedItem;
             npcLoveData.Items.Add(item.Id);
             itemsByID.Items.Remove(itemsByID.SelectedItem);
-
+            GiftListSave();
         }
 
         private void sendtoDislike_Click(object sender, EventArgs e)
@@ -652,7 +649,7 @@ namespace NPC_Creator
             var item = (ItemDescription)itemsByID.SelectedItem;
             npcDislikeData.Items.Add(item.Id);
             itemsByID.Items.Remove(itemsByID.SelectedItem);
-
+            GiftListSave();
         }
 
         private void sendtoHate_Click(object sender, EventArgs e)
@@ -660,7 +657,7 @@ namespace NPC_Creator
             var item = (ItemDescription)itemsByID.SelectedItem;
             npcHateData.Items.Add(item.Id);
             itemsByID.Items.Remove(itemsByID.SelectedItem);
-
+            GiftListSave();
         }
 
         private void sendtoNeutral_Click(object sender, EventArgs e)
@@ -668,7 +665,7 @@ namespace NPC_Creator
             var item = (ItemDescription)itemsByID.SelectedItem;
             npcNeutralData.Items.Add(item.Id);
             itemsByID.Items.Remove(itemsByID.SelectedItem);
-
+            GiftListSave();
         }
 
         private void npcDispoForm_Click(object sender, EventArgs e)
@@ -803,6 +800,7 @@ namespace NPC_Creator
             Directory.CreateDirectory($"Save Data/{projectName}_saveData");
             Directory.CreateDirectory($"Save Data/{projectName}_saveData/GiftTasteData");
             Directory.CreateDirectory($"Save Data/{projectName}_saveData/Engagement");
+            Directory.CreateDirectory($"Export/[CP]{projectName}/assets/Events");
 
         }
         //Click Reset Items List
@@ -1004,7 +1002,8 @@ namespace NPC_Creator
             }
 
         }
-        private void OnApplicationExit(object sender, EventArgs e)
+
+        public void GiftListSave()
         {
             if (!Directory.Exists(Environment.CurrentDirectory + $"\\Save Data\\{npcNewSystemName.Text}_saveData\\GiftTasteData"))
             {
@@ -1038,6 +1037,13 @@ namespace NPC_Creator
             System.IO.File.WriteAllText(Environment.CurrentDirectory + $"\\Save Data\\{npcNewSystemName.Text}_saveData\\Engagement\\EngagementA.txt", $"{dayOne.Text}");
             System.IO.File.WriteAllText(Environment.CurrentDirectory + $"\\Save Data\\{npcNewSystemName.Text}_saveData\\Engagement\\EngagementB.txt", $"{DayTwo.Text}");
 
+        }
+
+        private void createEvent_Click(object sender, EventArgs e)
+        {
+            Event_Studio frRem = new Event_Studio();
+            exportSystem = npcNewSystemName.Text;
+            frRem.ShowDialog();
         }
     }
 }
