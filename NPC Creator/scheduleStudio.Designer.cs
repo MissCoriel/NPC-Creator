@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(scheduleStudio));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.npcAnimation = new System.Windows.Forms.ComboBox();
+            this.scheduleDialog = new System.Windows.Forms.ComboBox();
             this.disableManual = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.loadCoord = new System.Windows.Forms.Button();
@@ -44,13 +46,10 @@
             this.newLocation = new System.Windows.Forms.TextBox();
             this.locations = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.scheduleDialog = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.scheduleName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.addToLine = new System.Windows.Forms.Button();
-            this.npcAnimation = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.npcFacing = new System.Windows.Forms.NumericUpDown();
             this.npcY = new System.Windows.Forms.NumericUpDown();
@@ -67,10 +66,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.exportJson = new System.Windows.Forms.Button();
             this.reloadSchedule = new System.Windows.Forms.Button();
             this.deleteScheduleEntry = new System.Windows.Forms.Button();
             this.generateSchedule = new System.Windows.Forms.Button();
             this.finalScheduleCheck = new System.Windows.Forms.ListBox();
+            this.scheduleName = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.npcFacing)).BeginInit();
@@ -84,6 +85,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.scheduleName);
+            this.groupBox1.Controls.Add(this.npcAnimation);
+            this.groupBox1.Controls.Add(this.scheduleDialog);
             this.groupBox1.Controls.Add(this.disableManual);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.editTextFile);
@@ -94,13 +98,10 @@
             this.groupBox1.Controls.Add(this.newLocation);
             this.groupBox1.Controls.Add(this.locations);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.scheduleDialog);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.scheduleName);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.addToLine);
-            this.groupBox1.Controls.Add(this.npcAnimation);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.npcFacing);
             this.groupBox1.Controls.Add(this.npcY);
@@ -114,6 +115,22 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Schedule Studio";
+            // 
+            // npcAnimation
+            // 
+            this.npcAnimation.FormattingEnabled = true;
+            this.npcAnimation.Location = new System.Drawing.Point(15, 92);
+            this.npcAnimation.Name = "npcAnimation";
+            this.npcAnimation.Size = new System.Drawing.Size(121, 21);
+            this.npcAnimation.TabIndex = 18;
+            // 
+            // scheduleDialog
+            // 
+            this.scheduleDialog.FormattingEnabled = true;
+            this.scheduleDialog.Location = new System.Drawing.Point(15, 171);
+            this.scheduleDialog.Name = "scheduleDialog";
+            this.scheduleDialog.Size = new System.Drawing.Size(121, 21);
+            this.scheduleDialog.TabIndex = 17;
             // 
             // disableManual
             // 
@@ -188,7 +205,7 @@
             // 
             // animationButton
             // 
-            this.animationButton.Location = new System.Drawing.Point(26, 120);
+            this.animationButton.Location = new System.Drawing.Point(15, 119);
             this.animationButton.Name = "animationButton";
             this.animationButton.Size = new System.Drawing.Size(121, 23);
             this.animationButton.TabIndex = 14;
@@ -250,13 +267,6 @@
             this.label9.Text = "If you do not have animations in the animationDescriptions.json or a schedule dia" +
     "log set up, please leave Animation Set and Dialog Blank!";
             // 
-            // scheduleDialog
-            // 
-            this.scheduleDialog.Location = new System.Drawing.Point(26, 172);
-            this.scheduleDialog.Name = "scheduleDialog";
-            this.scheduleDialog.Size = new System.Drawing.Size(100, 20);
-            this.scheduleDialog.TabIndex = 8;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -274,14 +284,6 @@
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "Schedule";
-            // 
-            // scheduleName
-            // 
-            this.scheduleName.Location = new System.Drawing.Point(6, 32);
-            this.scheduleName.Name = "scheduleName";
-            this.scheduleName.Size = new System.Drawing.Size(100, 20);
-            this.scheduleName.TabIndex = 1;
-            this.scheduleName.Text = "spring";
             // 
             // label5
             // 
@@ -301,13 +303,6 @@
             this.addToLine.Text = "Add to Schedule List";
             this.addToLine.UseVisualStyleBackColor = true;
             this.addToLine.Click += new System.EventHandler(this.AddToLine_Click);
-            // 
-            // npcAnimation
-            // 
-            this.npcAnimation.Location = new System.Drawing.Point(12, 94);
-            this.npcAnimation.Name = "npcAnimation";
-            this.npcAnimation.Size = new System.Drawing.Size(145, 20);
-            this.npcAnimation.TabIndex = 7;
             // 
             // label3
             // 
@@ -495,6 +490,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.exportJson);
             this.groupBox2.Controls.Add(this.reloadSchedule);
             this.groupBox2.Controls.Add(this.deleteScheduleEntry);
             this.groupBox2.Controls.Add(this.generateSchedule);
@@ -506,13 +502,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Schedule";
             // 
+            // exportJson
+            // 
+            this.exportJson.Location = new System.Drawing.Point(576, 180);
+            this.exportJson.Name = "exportJson";
+            this.exportJson.Size = new System.Drawing.Size(150, 23);
+            this.exportJson.TabIndex = 17;
+            this.exportJson.Text = "Export";
+            this.exportJson.UseVisualStyleBackColor = true;
+            this.exportJson.Click += new System.EventHandler(this.exportJson_Click);
+            // 
             // reloadSchedule
             // 
-            this.reloadSchedule.Location = new System.Drawing.Point(466, 180);
+            this.reloadSchedule.Location = new System.Drawing.Point(272, 180);
             this.reloadSchedule.Name = "reloadSchedule";
             this.reloadSchedule.Size = new System.Drawing.Size(129, 23);
             this.reloadSchedule.TabIndex = 7;
-            this.reloadSchedule.Text = "Load Recent";
+            this.reloadSchedule.Text = "Load File...";
             this.reloadSchedule.UseVisualStyleBackColor = true;
             this.reloadSchedule.Click += new System.EventHandler(this.ReloadSchedule_Click);
             // 
@@ -543,6 +549,26 @@
             this.finalScheduleCheck.Name = "finalScheduleCheck";
             this.finalScheduleCheck.Size = new System.Drawing.Size(1040, 147);
             this.finalScheduleCheck.TabIndex = 14;
+            // 
+            // scheduleName
+            // 
+            this.scheduleName.FormattingEnabled = true;
+            this.scheduleName.Items.AddRange(new object[] {
+            "spring",
+            "summer",
+            "fall",
+            "winter",
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri",
+            "Sat",
+            "Sun"});
+            this.scheduleName.Location = new System.Drawing.Point(15, 33);
+            this.scheduleName.Name = "scheduleName";
+            this.scheduleName.Size = new System.Drawing.Size(101, 21);
+            this.scheduleName.TabIndex = 19;
             // 
             // scheduleStudio
             // 
@@ -586,12 +612,9 @@
         private System.Windows.Forms.NumericUpDown npcY;
         private System.Windows.Forms.NumericUpDown npcX;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox scheduleName;
         private System.Windows.Forms.Button addToLine;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox scheduleDialog;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox npcAnimation;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button removeSelected;
         private System.Windows.Forms.ListBox scheduleData;
@@ -620,5 +643,9 @@
         private System.Windows.Forms.ListBox coordList;
         private System.Windows.Forms.ComboBox coordFiles;
         private System.Windows.Forms.CheckBox disableManual;
+        private System.Windows.Forms.ComboBox scheduleDialog;
+        private System.Windows.Forms.ComboBox npcAnimation;
+        private System.Windows.Forms.Button exportJson;
+        private System.Windows.Forms.ComboBox scheduleName;
     }
 }

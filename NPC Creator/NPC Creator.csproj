@@ -57,17 +57,77 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="about.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="about.Designer.cs">
-      <DependentUpon>about.cs</DependentUpon>
-    </Compile>
     <Compile Include="AboutBox1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddBigPropWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBigPropWindow.Designer.cs">
+      <DependentUpon>AddBigPropWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddConversationTopic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddConversationTopic.Designer.cs">
+      <DependentUpon>AddConversationTopic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddCookingRecipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCookingRecipe.Designer.cs">
+      <DependentUpon>AddCookingRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddCraftingRecipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCraftingRecipe.Designer.cs">
+      <DependentUpon>AddCraftingRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddLantern.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLantern.Designer.cs">
+      <DependentUpon>AddLantern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddMailReceived.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMailReceived.Designer.cs">
+      <DependentUpon>AddMailReceived.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddObject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddObject.Designer.cs">
+      <DependentUpon>AddObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddParameter.Designer.cs">
+      <DependentUpon>AddParameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddQuest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddQuest.Designer.cs">
+      <DependentUpon>AddQuest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Items.Designer.cs">
+      <DependentUpon>Add_Items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdvancedMovement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdvancedMovement.Designer.cs">
+      <DependentUpon>AdvancedMovement.cs</DependentUpon>
     </Compile>
     <Compile Include="AnimationStation.cs">
       <SubType>Form</SubType>
@@ -75,13 +135,133 @@
     <Compile Include="AnimationStation.Designer.cs">
       <DependentUpon>AnimationStation.cs</DependentUpon>
     </Compile>
+    <Compile Include="AttachtoTemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AttachtoTemp.Designer.cs">
+      <DependentUpon>AttachtoTemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BottomOfMine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BottomOfMine.Designer.cs">
+      <DependentUpon>BottomOfMine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chance Command.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chance Command.Designer.cs">
+      <DependentUpon>Chance Command.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeActorSprites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeActorSprites.Designer.cs">
+      <DependentUpon>ChangeActorSprites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeAmbientLight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeAmbientLight.Designer.cs">
+      <DependentUpon>ChangeAmbientLight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeLocation.Designer.cs">
+      <DependentUpon>ChangeLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeViewport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeViewport.Designer.cs">
+      <DependentUpon>ChangeViewport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check_State.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Check_State.Designer.cs">
+      <DependentUpon>Check_State.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Choose_Season.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Choose_Season.Designer.cs">
+      <DependentUpon>Choose_Season.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Conditions.Designer.cs">
+      <DependentUpon>Conditions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Create Question.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Create Question.Designer.cs">
+      <DependentUpon>Create Question.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAnimation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateAnimation.Designer.cs">
+      <DependentUpon>CreateAnimation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateMessage.Designer.cs">
+      <DependentUpon>CreateMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DayInSeason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DayInSeason.Designer.cs">
+      <DependentUpon>DayInSeason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaysPlayed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaysPlayed.Designer.cs">
+      <DependentUpon>DaysPlayed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogID.Designer.cs">
+      <DependentUpon>DialogID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogue File Without Project.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogue File Without Project.Designer.cs">
+      <DependentUpon>Dialogue File Without Project.cs</DependentUpon>
+    </Compile>
     <Compile Include="dialogueBoutique.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="dialogueBoutique.Designer.cs">
       <DependentUpon>dialogueBoutique.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogue_Prerequisite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogue_Prerequisite.Designer.cs">
+      <DependentUpon>Dialogue_Prerequisite.cs</DependentUpon>
+    </Compile>
     <Compile Include="DispoModel.cs" />
+    <Compile Include="Do_Action.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Do_Action.Designer.cs">
+      <DependentUpon>Do_Action.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EarnedMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EarnedMoney.Designer.cs">
+      <DependentUpon>EarnedMoney.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditDialogue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,11 +274,179 @@
     <Compile Include="EditSchedule.Designer.cs">
       <DependentUpon>EditSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Event Studio.cs">
+    <Compile Include="Emote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Event Studio.Designer.cs">
-      <DependentUpon>Event Studio.cs</DependentUpon>
+    <Compile Include="Emote.Designer.cs">
+      <DependentUpon>Emote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EndEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EndEvent.Designer.cs">
+      <DependentUpon>EndEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventFork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventFork.Designer.cs">
+      <DependentUpon>EventFork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Event_Chance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Event_Chance.Designer.cs">
+      <DependentUpon>Event_Chance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Event_Studio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Event_Studio.Designer.cs">
+      <DependentUpon>Event_Studio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FaceDirection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FaceDirection.Designer.cs">
+      <DependentUpon>FaceDirection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FarmerEat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FarmerEat.Designer.cs">
+      <DependentUpon>FarmerEat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FarmerGender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FarmerGender.Designer.cs">
+      <DependentUpon>FarmerGender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FarmerXY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FarmerXY.Designer.cs">
+      <DependentUpon>FarmerXY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fast_Question.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fast_Question.Designer.cs">
+      <DependentUpon>Fast_Question.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FriendshipPoints.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FriendshipPoints.Designer.cs">
+      <DependentUpon>FriendshipPoints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HasItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HasItem.Designer.cs">
+      <DependentUpon>HasItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HasMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HasMoney.Designer.cs">
+      <DependentUpon>HasMoney.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HasResponse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HasResponse.Designer.cs">
+      <DependentUpon>HasResponse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HasSeenEventCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HasSeenEventCondition.Designer.cs">
+      <DependentUpon>HasSeenEventCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InvisibleNPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InvisibleNPC.Designer.cs">
+      <DependentUpon>InvisibleNPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JitterControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JitterControl.Designer.cs">
+      <DependentUpon>JitterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JumpNPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JumpNPC.Designer.cs">
+      <DependentUpon>JumpNPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MailALetterInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MailALetterInterface.Designer.cs">
+      <DependentUpon>MailALetterInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MailLetter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MailLetter.Designer.cs">
+      <DependentUpon>MailLetter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MarriedCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarriedCheck.Designer.cs">
+      <DependentUpon>MarriedCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyFP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyFP.Designer.cs">
+      <DependentUpon>ModifyFP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MoveActor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoveActor.Designer.cs">
+      <DependentUpon>MoveActor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MoveViewport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoveViewport.Designer.cs">
+      <DependentUpon>MoveViewport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotMarriedToNPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotMarriedToNPC.Designer.cs">
+      <DependentUpon>NotMarriedToNPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotSeenEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotSeenEvent.Designer.cs">
+      <DependentUpon>NotSeenEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotSeenMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotSeenMail.Designer.cs">
+      <DependentUpon>NotSeenMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Not_Festival_in_X.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Not_Festival_in_X.Designer.cs">
+      <DependentUpon>Not_Festival_in_X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Not_These_Days.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Not_These_Days.Designer.cs">
+      <DependentUpon>Not_These_Days.cs</DependentUpon>
     </Compile>
     <Compile Include="NPCDisposition.cs">
       <SubType>Form</SubType>
@@ -106,12 +454,61 @@
     <Compile Include="NPCDisposition.Designer.cs">
       <DependentUpon>NPCDisposition.cs</DependentUpon>
     </Compile>
+    <Compile Include="NPCSpeak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NPCSpeak.Designer.cs">
+      <DependentUpon>NPCSpeak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="One_Time_Dialogue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="One_Time_Dialogue.Designer.cs">
+      <DependentUpon>One_Time_Dialogue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpenInvSlots.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenInvSlots.Designer.cs">
+      <DependentUpon>OpenInvSlots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pause Event.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pause Event.Designer.cs">
+      <DependentUpon>Pause Event.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlaceOnTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlaceOnTable.Designer.cs">
+      <DependentUpon>PlaceOnTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayMusic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlayMusic.Designer.cs">
+      <DependentUpon>PlayMusic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlaySFX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlaySFX.Designer.cs">
+      <DependentUpon>PlaySFX.cs</DependentUpon>
+    </Compile>
     <Compile Include="PortraitView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PortraitView.Designer.cs">
       <DependentUpon>PortraitView.cs</DependentUpon>
     </Compile>
+    <Compile Include="PositionOffset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PositionOffset.Designer.cs">
+      <DependentUpon>PositionOffset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="References.cs" />
     <Compile Include="Schedule Dialogue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,20 +538,221 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScreenFlash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenFlash.Designer.cs">
+      <DependentUpon>ScreenFlash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenGlow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenGlow.Designer.cs">
+      <DependentUpon>ScreenGlow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecretNotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecretNotes.Designer.cs">
+      <DependentUpon>SecretNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SeenMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeenMail.Designer.cs">
+      <DependentUpon>SeenMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectDateNPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectDateNPC.Designer.cs">
+      <DependentUpon>SelectDateNPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShakeNPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShakeNPC.Designer.cs">
+      <DependentUpon>ShakeNPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShippedItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShippedItems.Designer.cs">
+      <DependentUpon>ShippedItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowFrame.Designer.cs">
+      <DependentUpon>ShowFrame.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpritesheetView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SpritesheetView.Designer.cs">
       <DependentUpon>SpritesheetView.cs</DependentUpon>
     </Compile>
+    <Compile Include="StartEventingWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartEventingWindow.Designer.cs">
+      <DependentUpon>StartEventingWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StopAnimation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StopAnimation.Designer.cs">
+      <DependentUpon>StopAnimation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SwitchEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SwitchEvent.Designer.cs">
+      <DependentUpon>SwitchEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TemporaryActor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TemporaryActor.Designer.cs">
+      <DependentUpon>TemporaryActor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TextAboveHead.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TextAboveHead.Designer.cs">
+      <DependentUpon>TextAboveHead.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimeFrame.Designer.cs">
+      <DependentUpon>TimeFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WarpNPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WarpNPC.Designer.cs">
+      <DependentUpon>WarpNPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeatherCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WeatherCondition.Designer.cs">
+      <DependentUpon>WeatherCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WhoisPresent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WhoisPresent.Designer.cs">
+      <DependentUpon>WhoisPresent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Year_Check.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Year_Check.Designer.cs">
+      <DependentUpon>Year_Check.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddBigPropWindow.resx">
+      <DependentUpon>AddBigPropWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddConversationTopic.resx">
+      <DependentUpon>AddConversationTopic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCookingRecipe.resx">
+      <DependentUpon>AddCookingRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCraftingRecipe.resx">
+      <DependentUpon>AddCraftingRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddLantern.resx">
+      <DependentUpon>AddLantern.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddMailReceived.resx">
+      <DependentUpon>AddMailReceived.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddObject.resx">
+      <DependentUpon>AddObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddParameter.resx">
+      <DependentUpon>AddParameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddQuest.resx">
+      <DependentUpon>AddQuest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Items.resx">
+      <DependentUpon>Add_Items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdvancedMovement.resx">
+      <DependentUpon>AdvancedMovement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AnimationStation.resx">
       <DependentUpon>AnimationStation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AttachtoTemp.resx">
+      <DependentUpon>AttachtoTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BottomOfMine.resx">
+      <DependentUpon>BottomOfMine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chance Command.resx">
+      <DependentUpon>Chance Command.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeActorSprites.resx">
+      <DependentUpon>ChangeActorSprites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeAmbientLight.resx">
+      <DependentUpon>ChangeAmbientLight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeLocation.resx">
+      <DependentUpon>ChangeLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeViewport.resx">
+      <DependentUpon>ChangeViewport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Check_State.resx">
+      <DependentUpon>Check_State.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Choose_Season.resx">
+      <DependentUpon>Choose_Season.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions.resx">
+      <DependentUpon>Conditions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Create Question.resx">
+      <DependentUpon>Create Question.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateAnimation.resx">
+      <DependentUpon>CreateAnimation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateMessage.resx">
+      <DependentUpon>CreateMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DayInSeason.resx">
+      <DependentUpon>DayInSeason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaysPlayed.resx">
+      <DependentUpon>DaysPlayed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogID.resx">
+      <DependentUpon>DialogID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogue File Without Project.resx">
+      <DependentUpon>Dialogue File Without Project.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dialogueBoutique.resx">
       <DependentUpon>dialogueBoutique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogue_Prerequisite.resx">
+      <DependentUpon>Dialogue_Prerequisite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Do_Action.resx">
+      <DependentUpon>Do_Action.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EarnedMoney.resx">
+      <DependentUpon>EarnedMoney.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditDialogue.resx">
       <DependentUpon>EditDialogue.cs</DependentUpon>
@@ -162,20 +760,125 @@
     <EmbeddedResource Include="EditSchedule.resx">
       <DependentUpon>EditSchedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Event Studio.resx">
-      <DependentUpon>Event Studio.cs</DependentUpon>
+    <EmbeddedResource Include="Emote.resx">
+      <DependentUpon>Emote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EndEvent.resx">
+      <DependentUpon>EndEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventFork.resx">
+      <DependentUpon>EventFork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Event_Chance.resx">
+      <DependentUpon>Event_Chance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Event_Studio.resx">
+      <DependentUpon>Event_Studio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FaceDirection.resx">
+      <DependentUpon>FaceDirection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FarmerEat.resx">
+      <DependentUpon>FarmerEat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FarmerGender.resx">
+      <DependentUpon>FarmerGender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FarmerXY.resx">
+      <DependentUpon>FarmerXY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fast_Question.resx">
+      <DependentUpon>Fast_Question.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="about.resx">
-      <DependentUpon>about.cs</DependentUpon>
+    <EmbeddedResource Include="FriendshipPoints.resx">
+      <DependentUpon>FriendshipPoints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HasItem.resx">
+      <DependentUpon>HasItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HasMoney.resx">
+      <DependentUpon>HasMoney.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HasResponse.resx">
+      <DependentUpon>HasResponse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HasSeenEventCondition.resx">
+      <DependentUpon>HasSeenEventCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvisibleNPC.resx">
+      <DependentUpon>InvisibleNPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JitterControl.resx">
+      <DependentUpon>JitterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JumpNPC.resx">
+      <DependentUpon>JumpNPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MailALetterInterface.resx">
+      <DependentUpon>MailALetterInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MailLetter.resx">
+      <DependentUpon>MailLetter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarriedCheck.resx">
+      <DependentUpon>MarriedCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyFP.resx">
+      <DependentUpon>ModifyFP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MoveActor.resx">
+      <DependentUpon>MoveActor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MoveViewport.resx">
+      <DependentUpon>MoveViewport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotMarriedToNPC.resx">
+      <DependentUpon>NotMarriedToNPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotSeenEvent.resx">
+      <DependentUpon>NotSeenEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotSeenMail.resx">
+      <DependentUpon>NotSeenMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Not_Festival_in_X.resx">
+      <DependentUpon>Not_Festival_in_X.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Not_These_Days.resx">
+      <DependentUpon>Not_These_Days.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NPCDisposition.resx">
       <DependentUpon>NPCDisposition.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NPCSpeak.resx">
+      <DependentUpon>NPCSpeak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="One_Time_Dialogue.resx">
+      <DependentUpon>One_Time_Dialogue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenInvSlots.resx">
+      <DependentUpon>OpenInvSlots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pause Event.resx">
+      <DependentUpon>Pause Event.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaceOnTable.resx">
+      <DependentUpon>PlaceOnTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayMusic.resx">
+      <DependentUpon>PlayMusic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaySFX.resx">
+      <DependentUpon>PlaySFX.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PortraitView.resx">
       <DependentUpon>PortraitView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PositionOffset.resx">
+      <DependentUpon>PositionOffset.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Schedule Dialogue.resx">
       <DependentUpon>Schedule Dialogue.cs</DependentUpon>
@@ -195,9 +898,66 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ScreenFlash.resx">
+      <DependentUpon>ScreenFlash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScreenGlow.resx">
+      <DependentUpon>ScreenGlow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecretNotes.resx">
+      <DependentUpon>SecretNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeenMail.resx">
+      <DependentUpon>SeenMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectDateNPC.resx">
+      <DependentUpon>SelectDateNPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShakeNPC.resx">
+      <DependentUpon>ShakeNPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShippedItems.resx">
+      <DependentUpon>ShippedItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowFrame.resx">
+      <DependentUpon>ShowFrame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SpritesheetView.resx">
       <DependentUpon>SpritesheetView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StartEventingWindow.resx">
+      <DependentUpon>StartEventingWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StopAnimation.resx">
+      <DependentUpon>StopAnimation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SwitchEvent.resx">
+      <DependentUpon>SwitchEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TemporaryActor.resx">
+      <DependentUpon>TemporaryActor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TextAboveHead.resx">
+      <DependentUpon>TextAboveHead.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeFrame.resx">
+      <DependentUpon>TimeFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WarpNPC.resx">
+      <DependentUpon>WarpNPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeatherCondition.resx">
+      <DependentUpon>WeatherCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WhoisPresent.resx">
+      <DependentUpon>WhoisPresent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Year_Check.resx">
+      <DependentUpon>Year_Check.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Common Data\food.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Common Data\ItemList.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -216,11 +976,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Common Data\BasicScheduleData.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common Data\CookingRecepies.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common Data\CraftingRecepies.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Common Data\dialogueKeys.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Common Data\EventCommands.json" />
     <Content Include="Common Data\marriedKeys.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common Data\MusicList.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Common Data\NPCNames.txt">
@@ -229,7 +1001,12 @@
     <Content Include="Common Data\ReadMes\SpriteSheet Template Readme.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Common Data\seasons.txt" />
+    <Content Include="Common Data\seasons.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common Data\SFXList.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Common Data\Templates%28Do not edit these%29\Adult_sprite_template.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

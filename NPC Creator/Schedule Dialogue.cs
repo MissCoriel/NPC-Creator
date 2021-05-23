@@ -32,6 +32,17 @@ namespace NPC_Creator
         private void Schedule_Dialogue_Load(object sender, EventArgs e)
         {
             systemName = scheduleStudio.importSystem;
+            if(File.Exists(Environment.CurrentDirectory + $"\\Export\\[CP]{systemName}\\assets\\schedules\\scheduleDialogue.json"))
+            {
+                string json = File.ReadAllText(Environment.CurrentDirectory + $"\\Export\\[CP]{systemName}\\assets\\schedules\\scheduleDialogue.json");
+                var recentLoad = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+                foreach (KeyValuePair<string, string> pair in recentLoad)
+                {
+                    scheduleDialogList.Items.Add($"{pair.Key}: {pair.Value}");
+                }
+
+            }
+
         }
         private IEnumerable<string> GetItems(ListBox listbox)
         {
