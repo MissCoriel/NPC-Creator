@@ -21,7 +21,7 @@ namespace NPC_Creator
         {
             string parse = $"viewport {viewX.Value} {viewY.Value}";
             Conditions mw = (Conditions)Application.OpenForms["Conditions"];
-            mw.addConditiontoList(parse);
+            mw.addCommandtoList(parse);
             this.Close();
         }
     }

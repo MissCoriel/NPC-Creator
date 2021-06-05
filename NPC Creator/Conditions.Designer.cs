@@ -1389,6 +1389,7 @@
             this.SpecificTempCommand.TabIndex = 101;
             this.SpecificTempCommand.Text = "Show Specific Temporary Sprite";
             this.SpecificTempCommand.UseVisualStyleBackColor = true;
+            this.SpecificTempCommand.Click += new System.EventHandler(this.SpecificTempCommand_Click);
             // 
             // SpeedCommand
             // 

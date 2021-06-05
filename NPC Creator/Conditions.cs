@@ -782,5 +782,12 @@ namespace NPC_Creator
 
             }
         }
+
+        private void SpecificTempCommand_Click(object sender, EventArgs e)
+        {
+            specificTempSprite frRem = new specificTempSprite();
+            frRem.Text = "Specific Temporary Sprite";
+            frRem.ShowDialog();
+        }
     }
 }

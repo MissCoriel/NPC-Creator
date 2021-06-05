@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Items));
             this.itemList = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.addItemList = new System.Windows.Forms.ListBox();
@@ -102,6 +103,7 @@
             this.Controls.Add(this.addItemList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.itemList);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Add_Items";
             this.Text = "Add_Items";
             this.Load += new System.EventHandler(this.Add_Items_Load);

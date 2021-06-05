@@ -58,8 +58,8 @@
             this.clearList = new System.Windows.Forms.Button();
             this.recentLoad = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.testAnimation = new System.Windows.Forms.PictureBox();
             this.PlayButton = new System.Windows.Forms.Button();
+            this.testAnimation = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.frameCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -365,6 +365,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Test Animation";
             // 
+            // PlayButton
+            // 
+            this.PlayButton.Location = new System.Drawing.Point(16, 163);
+            this.PlayButton.Name = "PlayButton";
+            this.PlayButton.Size = new System.Drawing.Size(64, 23);
+            this.PlayButton.TabIndex = 12;
+            this.PlayButton.Text = "Play Animation";
+            this.PlayButton.UseVisualStyleBackColor = true;
+            this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
+            // 
             // testAnimation
             // 
             this.testAnimation.BackColor = System.Drawing.SystemColors.Highlight;
@@ -376,16 +386,6 @@
             this.testAnimation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.testAnimation.TabIndex = 11;
             this.testAnimation.TabStop = false;
-            // 
-            // PlayButton
-            // 
-            this.PlayButton.Location = new System.Drawing.Point(16, 163);
-            this.PlayButton.Name = "PlayButton";
-            this.PlayButton.Size = new System.Drawing.Size(64, 23);
-            this.PlayButton.TabIndex = 12;
-            this.PlayButton.Text = "Play Animation";
-            this.PlayButton.UseVisualStyleBackColor = true;
-            this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
             // 
             // AnimationStation
             // 

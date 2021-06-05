@@ -19,7 +19,7 @@ namespace NPC_Creator
 
         private void addCommand_Click(object sender, EventArgs e)
         {
-            double chanceDecimal = (double)chancePercentile.Value / 10;
+            double chanceDecimal = (double)chancePercentile.Value / 100;
             string parseCommand = $"$c {chanceDecimal}#";
             dialogueBoutique mw = (dialogueBoutique)Application.OpenForms["dialogueBoutique"];
             mw.FrontRunningCommands(parseCommand);
