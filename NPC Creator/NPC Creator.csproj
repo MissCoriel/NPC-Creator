@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>npcico.ico</ApplicationIcon>
+    <ApplicationIcon>hnet.com-image.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <Win32Resource>
@@ -586,6 +586,12 @@
     <Compile Include="ShowFrame.Designer.cs">
       <DependentUpon>ShowFrame.cs</DependentUpon>
     </Compile>
+    <Compile Include="specificTempSprite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="specificTempSprite.Designer.cs">
+      <DependentUpon>specificTempSprite.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpritesheetView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -922,6 +928,9 @@
     <EmbeddedResource Include="ShowFrame.resx">
       <DependentUpon>ShowFrame.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="specificTempSprite.resx">
+      <DependentUpon>specificTempSprite.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SpritesheetView.resx">
       <DependentUpon>SpritesheetView.cs</DependentUpon>
     </EmbeddedResource>
@@ -1025,6 +1034,7 @@
     <Content Include="Common Data\ValidLocations.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="hnet.com-image.ico" />
     <Content Include="npcico.ico" />
     <Content Include="portrait4_8fC_icon.ico" />
   </ItemGroup>

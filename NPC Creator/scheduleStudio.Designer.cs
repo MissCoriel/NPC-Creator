@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(scheduleStudio));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.scheduleName = new System.Windows.Forms.ComboBox();
             this.npcAnimation = new System.Windows.Forms.ComboBox();
             this.scheduleDialog = new System.Windows.Forms.ComboBox();
             this.disableManual = new System.Windows.Forms.CheckBox();
@@ -71,7 +72,6 @@
             this.deleteScheduleEntry = new System.Windows.Forms.Button();
             this.generateSchedule = new System.Windows.Forms.Button();
             this.finalScheduleCheck = new System.Windows.Forms.ListBox();
-            this.scheduleName = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.npcFacing)).BeginInit();
@@ -115,6 +115,26 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Schedule Studio";
+            // 
+            // scheduleName
+            // 
+            this.scheduleName.FormattingEnabled = true;
+            this.scheduleName.Items.AddRange(new object[] {
+            "spring",
+            "summer",
+            "fall",
+            "winter",
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri",
+            "Sat",
+            "Sun"});
+            this.scheduleName.Location = new System.Drawing.Point(15, 33);
+            this.scheduleName.Name = "scheduleName";
+            this.scheduleName.Size = new System.Drawing.Size(101, 21);
+            this.scheduleName.TabIndex = 19;
             // 
             // npcAnimation
             // 
@@ -549,26 +569,6 @@
             this.finalScheduleCheck.Name = "finalScheduleCheck";
             this.finalScheduleCheck.Size = new System.Drawing.Size(1040, 147);
             this.finalScheduleCheck.TabIndex = 14;
-            // 
-            // scheduleName
-            // 
-            this.scheduleName.FormattingEnabled = true;
-            this.scheduleName.Items.AddRange(new object[] {
-            "spring",
-            "summer",
-            "fall",
-            "winter",
-            "Mon",
-            "Tue",
-            "Wed",
-            "Thu",
-            "Fri",
-            "Sat",
-            "Sun"});
-            this.scheduleName.Location = new System.Drawing.Point(15, 33);
-            this.scheduleName.Name = "scheduleName";
-            this.scheduleName.Size = new System.Drawing.Size(101, 21);
-            this.scheduleName.TabIndex = 19;
             // 
             // scheduleStudio
             // 
