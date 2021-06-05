@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Event_Studio));
             this.eventFileData = new System.Windows.Forms.ListBox();
             this.newEvent = new System.Windows.Forms.Button();
             this.saveEventFile = new System.Windows.Forms.Button();
@@ -69,6 +70,7 @@
             this.Controls.Add(this.saveEventFile);
             this.Controls.Add(this.newEvent);
             this.Controls.Add(this.eventFileData);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Event_Studio";
             this.Text = "Event_Studio";
             this.Load += new System.EventHandler(this.Event_Studio_Load);

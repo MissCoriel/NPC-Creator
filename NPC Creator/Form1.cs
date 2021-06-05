@@ -1041,6 +1041,7 @@ namespace NPC_Creator
 
         private void createEvent_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Event Studio does not account for your NPCs and is completely standalone.\nBe sure to add what you need for events in the appropriate areas.", "Event Studio", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Event_Studio frRem = new Event_Studio();
             exportSystem = npcNewSystemName.Text;
             frRem.ShowDialog();

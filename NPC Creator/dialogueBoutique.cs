@@ -358,7 +358,7 @@ namespace NPC_Creator
                 MessageBox.Show("Dialogue.Json Created Successfully!", "Dialogue Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if(marriage.Count > 0)
                 {
-                    File.WriteAllText(Environment.CurrentDirectory + $"\\Export\\[CP]{systemName}\\assets\\dialogue\\MarriageDialogue.json", JsonConvert.SerializeObject(new JsonSerializerSettings { Formatting = Formatting.Indented, NullValueHandling = NullValueHandling.Ignore }));
+                    File.WriteAllText(Environment.CurrentDirectory + $"\\Export\\[CP]{systemName}\\assets\\dialogue\\MarriageDialogue.json", JsonConvert.SerializeObject(marriage, new JsonSerializerSettings { Formatting = Formatting.Indented, NullValueHandling = NullValueHandling.Ignore }));
                     //string save = Path.Combine($"Export/[CP]{systemName}/assets/dialogue", "BackupMarriageDialogue.json");
                     File.WriteAllText(Environment.CurrentDirectory + $"\\Save Data\\{systemName}_saveData\\marriageDialogue.json", JsonConvert.SerializeObject(marriage, new JsonSerializerSettings { Formatting = Formatting.Indented, NullValueHandling = NullValueHandling.Ignore }));
                     MessageBox.Show("MarriageDialogue.Json Created!", "Dialogue Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -367,7 +367,7 @@ namespace NPC_Creator
             }
             if (marriageDialog.Checked == true)
             {
-                File.WriteAllText(Environment.CurrentDirectory + $"\\Export\\[CP]{systemName}\\assets\\dialogue\\MarriageDialogue.json", JsonConvert.SerializeObject( new JsonSerializerSettings { Formatting = Formatting.Indented, NullValueHandling = NullValueHandling.Ignore }));
+                File.WriteAllText(Environment.CurrentDirectory + $"\\Export\\[CP]{systemName}\\assets\\dialogue\\MarriageDialogue.json", JsonConvert.SerializeObject(marriage, new JsonSerializerSettings { Formatting = Formatting.Indented, NullValueHandling = NullValueHandling.Ignore }));
                 //string save = Path.Combine($"Export/[CP]{systemName}/assets/dialogue", "BackupMarriageDialogue.json");
                 File.WriteAllText(Environment.CurrentDirectory + $"\\Save Data\\{systemName}_saveData\\marriageDialogue.json", JsonConvert.SerializeObject(marriage, new JsonSerializerSettings { Formatting = Formatting.Indented, NullValueHandling = NullValueHandling.Ignore }));
                 MessageBox.Show("MarriageDialogue.Json Created!", "Dialogue Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);

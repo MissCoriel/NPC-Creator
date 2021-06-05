@@ -43,6 +43,7 @@ namespace NPC_Creator
 
         private void saveEventFile_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("While you have the freedom to save the file with any name, be aware that NPCCreator requires the file to be named after the map in which the events take place.", "Shop Smart, Shop S-Mart", MessageBoxButtons.OK, MessageBoxIcon.Information);
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.InitialDirectory = Environment.CurrentDirectory;
             saveFile.Title = "Save Event File";

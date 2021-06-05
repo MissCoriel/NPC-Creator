@@ -75,6 +75,8 @@
             this.negativeID = new System.Windows.Forms.NumericUpDown();
             this.positiveID = new System.Windows.Forms.NumericUpDown();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.CreateOverhaul = new System.Windows.Forms.Button();
+            this.exportDialogFile = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.createDialogFile = new System.Windows.Forms.Button();
@@ -85,16 +87,14 @@
             this.portFrame = new System.Windows.Forms.NumericUpDown();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.exportDialogFile = new System.Windows.Forms.Button();
-            this.ChanceCommand = new System.Windows.Forms.Button();
-            this.StateCommand = new System.Windows.Forms.Button();
-            this.FastQuestion = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.OneTime = new System.Windows.Forms.Button();
-            this.AddItems = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.ShowBook = new System.Windows.Forms.Button();
-            this.CreateOverhaul = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.AddItems = new System.Windows.Forms.Button();
+            this.OneTime = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.FastQuestion = new System.Windows.Forms.Button();
+            this.StateCommand = new System.Windows.Forms.Button();
+            this.ChanceCommand = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -606,6 +606,26 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Dialogue List";
             // 
+            // CreateOverhaul
+            // 
+            this.CreateOverhaul.Location = new System.Drawing.Point(724, 246);
+            this.CreateOverhaul.Name = "CreateOverhaul";
+            this.CreateOverhaul.Size = new System.Drawing.Size(123, 23);
+            this.CreateOverhaul.TabIndex = 23;
+            this.CreateOverhaul.Text = "Create Overhaul";
+            this.CreateOverhaul.UseVisualStyleBackColor = true;
+            this.CreateOverhaul.Click += new System.EventHandler(this.CreateOverhaul_Click);
+            // 
+            // exportDialogFile
+            // 
+            this.exportDialogFile.Location = new System.Drawing.Point(724, 202);
+            this.exportDialogFile.Name = "exportDialogFile";
+            this.exportDialogFile.Size = new System.Drawing.Size(123, 23);
+            this.exportDialogFile.TabIndex = 26;
+            this.exportDialogFile.Text = "Export";
+            this.exportDialogFile.UseVisualStyleBackColor = true;
+            this.exportDialogFile.Click += new System.EventHandler(this.exportDialogFile_Click);
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(724, 66);
@@ -719,75 +739,15 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Dialogue Commands";
             // 
-            // exportDialogFile
+            // ShowBook
             // 
-            this.exportDialogFile.Location = new System.Drawing.Point(724, 202);
-            this.exportDialogFile.Name = "exportDialogFile";
-            this.exportDialogFile.Size = new System.Drawing.Size(123, 23);
-            this.exportDialogFile.TabIndex = 26;
-            this.exportDialogFile.Text = "Export";
-            this.exportDialogFile.UseVisualStyleBackColor = true;
-            this.exportDialogFile.Click += new System.EventHandler(this.exportDialogFile_Click);
-            // 
-            // ChanceCommand
-            // 
-            this.ChanceCommand.Location = new System.Drawing.Point(87, 77);
-            this.ChanceCommand.Name = "ChanceCommand";
-            this.ChanceCommand.Size = new System.Drawing.Size(75, 23);
-            this.ChanceCommand.TabIndex = 38;
-            this.ChanceCommand.Text = "Chance";
-            this.ChanceCommand.UseVisualStyleBackColor = true;
-            this.ChanceCommand.Click += new System.EventHandler(this.ChanceCommand_Click);
-            // 
-            // StateCommand
-            // 
-            this.StateCommand.Location = new System.Drawing.Point(168, 77);
-            this.StateCommand.Name = "StateCommand";
-            this.StateCommand.Size = new System.Drawing.Size(75, 23);
-            this.StateCommand.TabIndex = 39;
-            this.StateCommand.Text = "Check State";
-            this.StateCommand.UseVisualStyleBackColor = true;
-            this.StateCommand.Click += new System.EventHandler(this.StateCommand_Click);
-            // 
-            // FastQuestion
-            // 
-            this.FastQuestion.Location = new System.Drawing.Point(249, 77);
-            this.FastQuestion.Name = "FastQuestion";
-            this.FastQuestion.Size = new System.Drawing.Size(75, 23);
-            this.FastQuestion.TabIndex = 40;
-            this.FastQuestion.Text = "Fast ?";
-            this.FastQuestion.UseVisualStyleBackColor = true;
-            this.FastQuestion.Click += new System.EventHandler(this.FastQuestion_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(415, 48);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 41;
-            this.button4.Text = "Prerequisite";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // OneTime
-            // 
-            this.OneTime.Location = new System.Drawing.Point(496, 48);
-            this.OneTime.Name = "OneTime";
-            this.OneTime.Size = new System.Drawing.Size(75, 23);
-            this.OneTime.TabIndex = 3;
-            this.OneTime.Text = "1-time";
-            this.OneTime.UseVisualStyleBackColor = true;
-            this.OneTime.Click += new System.EventHandler(this.OneTime_Click);
-            // 
-            // AddItems
-            // 
-            this.AddItems.Location = new System.Drawing.Point(6, 77);
-            this.AddItems.Name = "AddItems";
-            this.AddItems.Size = new System.Drawing.Size(75, 23);
-            this.AddItems.TabIndex = 3;
-            this.AddItems.Text = "Items";
-            this.AddItems.UseVisualStyleBackColor = true;
-            this.AddItems.Click += new System.EventHandler(this.AddItems_Click);
+            this.ShowBook.Location = new System.Drawing.Point(334, 48);
+            this.ShowBook.Name = "ShowBook";
+            this.ShowBook.Size = new System.Drawing.Size(75, 23);
+            this.ShowBook.TabIndex = 43;
+            this.ShowBook.Text = "Elliott\'s Book";
+            this.ShowBook.UseVisualStyleBackColor = true;
+            this.ShowBook.Click += new System.EventHandler(this.ShowBook_Click);
             // 
             // button5
             // 
@@ -799,25 +759,65 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // ShowBook
+            // AddItems
             // 
-            this.ShowBook.Location = new System.Drawing.Point(334, 48);
-            this.ShowBook.Name = "ShowBook";
-            this.ShowBook.Size = new System.Drawing.Size(75, 23);
-            this.ShowBook.TabIndex = 43;
-            this.ShowBook.Text = "Elliott\'s Book";
-            this.ShowBook.UseVisualStyleBackColor = true;
-            this.ShowBook.Click += new System.EventHandler(this.ShowBook_Click);
+            this.AddItems.Location = new System.Drawing.Point(6, 77);
+            this.AddItems.Name = "AddItems";
+            this.AddItems.Size = new System.Drawing.Size(75, 23);
+            this.AddItems.TabIndex = 3;
+            this.AddItems.Text = "Items";
+            this.AddItems.UseVisualStyleBackColor = true;
+            this.AddItems.Click += new System.EventHandler(this.AddItems_Click);
             // 
-            // CreateOverhaul
+            // OneTime
             // 
-            this.CreateOverhaul.Location = new System.Drawing.Point(724, 246);
-            this.CreateOverhaul.Name = "CreateOverhaul";
-            this.CreateOverhaul.Size = new System.Drawing.Size(123, 23);
-            this.CreateOverhaul.TabIndex = 23;
-            this.CreateOverhaul.Text = "Create Overhaul";
-            this.CreateOverhaul.UseVisualStyleBackColor = true;
-            this.CreateOverhaul.Click += new System.EventHandler(this.CreateOverhaul_Click);
+            this.OneTime.Location = new System.Drawing.Point(496, 48);
+            this.OneTime.Name = "OneTime";
+            this.OneTime.Size = new System.Drawing.Size(75, 23);
+            this.OneTime.TabIndex = 3;
+            this.OneTime.Text = "1-time";
+            this.OneTime.UseVisualStyleBackColor = true;
+            this.OneTime.Click += new System.EventHandler(this.OneTime_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(415, 48);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 41;
+            this.button4.Text = "Prerequisite";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // FastQuestion
+            // 
+            this.FastQuestion.Location = new System.Drawing.Point(249, 77);
+            this.FastQuestion.Name = "FastQuestion";
+            this.FastQuestion.Size = new System.Drawing.Size(75, 23);
+            this.FastQuestion.TabIndex = 40;
+            this.FastQuestion.Text = "Fast ?";
+            this.FastQuestion.UseVisualStyleBackColor = true;
+            this.FastQuestion.Click += new System.EventHandler(this.FastQuestion_Click);
+            // 
+            // StateCommand
+            // 
+            this.StateCommand.Location = new System.Drawing.Point(168, 77);
+            this.StateCommand.Name = "StateCommand";
+            this.StateCommand.Size = new System.Drawing.Size(75, 23);
+            this.StateCommand.TabIndex = 39;
+            this.StateCommand.Text = "Check State";
+            this.StateCommand.UseVisualStyleBackColor = true;
+            this.StateCommand.Click += new System.EventHandler(this.StateCommand_Click);
+            // 
+            // ChanceCommand
+            // 
+            this.ChanceCommand.Location = new System.Drawing.Point(87, 77);
+            this.ChanceCommand.Name = "ChanceCommand";
+            this.ChanceCommand.Size = new System.Drawing.Size(75, 23);
+            this.ChanceCommand.TabIndex = 38;
+            this.ChanceCommand.Text = "Chance";
+            this.ChanceCommand.UseVisualStyleBackColor = true;
+            this.ChanceCommand.Click += new System.EventHandler(this.ChanceCommand_Click);
             // 
             // button6
             // 
