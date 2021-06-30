@@ -11,5 +11,6 @@ namespace NPC_Creator
     {
         public string Format { get; set; }
         public PatchVariable[] Changes { get; set; }
+        
     }
 }

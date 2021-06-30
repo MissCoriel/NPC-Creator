@@ -15,11 +15,26 @@ namespace NPC_Creator
         }
         public void addConditiontoList(string data)
         {
-            conditionsList.Items.Add(data);
+                conditionsList.Items.Add(data);
+        }
+        public void addInitialstoList(string data)
+        {
+            eventCommandList.Items.Add(data);
+
         }
         public void addCommandtoList(string data)
         {
-            eventCommandList.Items.Add(data);
+            //eventCommandList.Items.Add(data);
+            if(eventCommandList.SelectedIndex == -1)
+            {
+                eventCommandList.Items.Add(data);
+            }
+            if(eventCommandList.SelectedIndex != -1)
+            {
+                eventCommandList.Items.Insert(eventCommandList.SelectedIndex, data);
+
+            }
+            eventCommandList.ClearSelected();
         }
         public void ClearTempFiles()
         {
@@ -30,33 +45,6 @@ namespace NPC_Creator
                     File.Delete(Environment.CurrentDirectory + "\\Save Data\\TempEventInformation\\tempEventActorData.txt");
                 }
             }
-        }
-        public void MoveUp()
-        {
-            MoveItem(-1);
-        }
-        public void MoveDown()
-        {
-            MoveItem(1);
-        }
-        public void MoveItem(int direction)
-        {
-            //check if valid
-            if (eventCommandList.SelectedItem == null || eventCommandList.SelectedIndex < 0)
-                return; //Nothing selected
-            //create new index using move direction
-            int newIndex = eventCommandList.SelectedIndex + direction;
-            //check bounds
-            if (newIndex < 0 || newIndex >= eventCommandList.Items.Count)
-                return; //Out of Range.. do nothing
-            object selected = eventCommandList.SelectedItem;
-
-            //Delete old instance
-            eventCommandList.Items.Remove(selected);
-            //place on new spot
-            eventCommandList.Items.Insert(newIndex, selected);
-            //restore selection
-            eventCommandList.SetSelected(newIndex, true);
         }
 
         private void startEvent_Click(object sender, EventArgs e)
@@ -91,6 +79,37 @@ namespace NPC_Creator
         {
             conditionsGroup.Enabled = false;
             ClearTempFiles();
+            //If you are Editing an event, there should be temp files for it
+            if(Directory.Exists(Environment.CurrentDirectory + "\\Save Data\\tmp\\editevent"))
+            {
+                List<string> readConditions = new List<string>();
+                List<string> readCommands = new List<string>();
+                startEvent.Enabled = false;
+                //Acquire Event ID
+                subEvent.Text = File.ReadAllText(Environment.CurrentDirectory + "\\Save Data\\tmp\\editevent\\eventID.txt");
+                //Make some cosmetic changes
+                groupBox1.Text = "Edit Event";
+                label2.Text = "Edit Mode";
+                //Check and add conditions
+                if (File.Exists(Environment.CurrentDirectory + "\\Save Data\\tmp\\editevent\\conditions.txt"))
+                {
+                    conditionsList.Items.AddRange(File.ReadAllLines(Environment.CurrentDirectory + "\\Save Data\\tmp\\editevent\\conditions.txt"));
+                    conditionsGroup.Enabled = true; //make true for editing
+                }
+                //Check and add commands
+                if (File.Exists(Environment.CurrentDirectory + "\\Save Data\\tmp\\editevent\\commands.txt"))
+                {
+                    eventCommandList.Items.AddRange(File.ReadAllLines(Environment.CurrentDirectory + "\\Save Data\\tmp\\editevent\\commands.txt"));
+                }
+                eventGroup.Enabled = true; //make true for editing
+                //Delete Temp Files
+                string[] tempFiles = Directory.GetFiles(Environment.CurrentDirectory + "\\Save Data\\tmp\\editevent");
+                foreach(string file in tempFiles)
+                {
+                    File.Delete(file);
+                }
+                Directory.Delete(Environment.CurrentDirectory + "\\Save Data\\tmp\\editevent");
+            }
         }
         private void DialogNotInProg_Click(object sender, EventArgs e)
         {
@@ -443,7 +462,7 @@ namespace NPC_Creator
 
         private void DelEventSel_Click(object sender, EventArgs e)
         {
-            eventCommandList.Items.Remove(eventCommandList.SelectedItem);
+            eventCommandList.Items.RemoveAt(eventCommandList.SelectedIndex);
         }
 
         private void EventClearAll_Click(object sender, EventArgs e)
@@ -524,18 +543,43 @@ namespace NPC_Creator
 
         private void FadeCommand_Click(object sender, EventArgs e)
         {
-            eventCommandList.Items.Add("fade");
+            if (eventCommandList.SelectedIndex == -1)
+            {
+                eventCommandList.Items.Add("fade");
+            }
+            if (eventCommandList.SelectedIndex != -1)
+            {
+                eventCommandList.Items.Insert(eventCommandList.SelectedIndex, "fade");
+
+            }
+
         }
 
         private void GlobalFadeCommand_Click(object sender, EventArgs e)
         {
-            eventCommandList.Items.Add("globalFade");
+            if (eventCommandList.SelectedIndex == -1)
+            {
+                eventCommandList.Items.Add("globalFade");
+            }
+            if (eventCommandList.SelectedIndex != -1)
+            {
+                eventCommandList.Items.Insert(eventCommandList.SelectedIndex, "globalFade");
 
+            }
         }
 
         private void HaltCommand_Click(object sender, EventArgs e)
         {
-            eventCommandList.Items.Add("halt");
+            if (eventCommandList.SelectedIndex == -1)
+            {
+                eventCommandList.Items.Add("halt");
+            }
+            if (eventCommandList.SelectedIndex != -1)
+            {
+                eventCommandList.Items.Insert(eventCommandList.SelectedIndex, "halt");
+
+            }
+
 
         }
 
@@ -605,12 +649,70 @@ namespace NPC_Creator
 
         private void UpButton_Click(object sender, EventArgs e)
         {
-            MoveUp();
+            // find the lowest index of non selected items
+            int lowestIndexNotSelected = eventCommandList.Items.Count - 1;
+            for (int i = eventCommandList.Items.Count - 1; i >= 0; i--)
+            {
+                if (!eventCommandList.SelectedIndices.Contains(i))
+                {
+                    lowestIndexNotSelected = i;
+                }
+            }
+
+            eventCommandList.BeginUpdate();
+            int numberOfSelectedItems = eventCommandList.SelectedItems.Count;
+            for (int i = 0; i < numberOfSelectedItems; i++)
+            {
+                // only if it's not a lower inde than the lowest non selected index
+                if (eventCommandList.SelectedIndices[i] > lowestIndexNotSelected)
+                {
+                    // the index of the item above the item that we wanna move up
+                    int indexToInsertIn = eventCommandList.SelectedIndices[i] - 1;
+                    // insert UP the item that we want to move up
+                    eventCommandList.Items.Insert(indexToInsertIn, eventCommandList.SelectedItems[i]);
+                    // removing it from its old place
+                    eventCommandList.Items.RemoveAt(indexToInsertIn + 2);
+                    // highlighting it in its new place (by index, to prevent highlighting wrong instance)
+                    eventCommandList.SelectedIndex = indexToInsertIn;
+                }
+            }
+            eventCommandList.EndUpdate();
+
         }
 
         private void DownButton_Click(object sender, EventArgs e)
         {
-            MoveDown();
+            // find the highest index of non selected items
+            int highestIndexNonSelected = 0;
+            for (int i = 0; i < eventCommandList.Items.Count; i++)
+            {
+                if (!eventCommandList.SelectedIndices.Contains(i))
+                {
+                    highestIndexNonSelected = i;
+                }
+            }
+
+            eventCommandList.BeginUpdate();
+            int numberOfSelectedItems = eventCommandList.SelectedItems.Count;
+            // when going down, instead of moving through the selected items from top to bottom
+            // we'll go from bottom to top, it's easier to handle this way.
+            for (int i = numberOfSelectedItems - 1; i >= 0; i--)
+            {
+                // only if it's not a higher index than the highest index not selected
+                if (eventCommandList.SelectedIndices[i] < highestIndexNonSelected)
+                {
+                    // the index of the item that is currently below the selected item
+                    int indexToInsertIn = eventCommandList.SelectedIndices[i] + 2;
+                    // insert DOWN the item that we want to move down
+                    eventCommandList.Items.Insert(indexToInsertIn, eventCommandList.SelectedItems[i]);
+                    // removing it from its old place
+                    eventCommandList.Items.RemoveAt(indexToInsertIn - 2);
+                    // highlighting it in its new place (by index, to prevent highlighting wrong instance)
+                    eventCommandList.SelectedIndex = indexToInsertIn - 1;
+                }
+            }
+            eventCommandList.EndUpdate();
+
         }
 
         private void QuestionCommand_Click(object sender, EventArgs e)
@@ -636,7 +738,15 @@ namespace NPC_Creator
 
         private void StopMusicCommand_Click(object sender, EventArgs e)
         {
-            eventCommandList.Items.Add("stopMusic");
+            if (eventCommandList.SelectedIndex == -1)
+            {
+                eventCommandList.Items.Add("stopMusic");
+            }
+            if (eventCommandList.SelectedIndex != -1)
+            {
+                eventCommandList.Items.Insert(eventCommandList.SelectedIndex, "stopMusic");
+
+            }
         }
 
         private void TextAboveCommand_Click(object sender, EventArgs e)
@@ -697,7 +807,16 @@ namespace NPC_Creator
 
         private void StopGlowCommand_Click(object sender, EventArgs e)
         {
-            eventCommandList.Items.Add("stopGlowing");
+            if (eventCommandList.SelectedIndex == -1)
+            {
+                eventCommandList.Items.Add("stopGlowing");
+            }
+            if (eventCommandList.SelectedIndex != -1)
+            {
+                eventCommandList.Items.Insert(eventCommandList.SelectedIndex, "stopGlowing");
+
+            }
+
         }
 
         private void ShowFrameCommand_Click(object sender, EventArgs e)
@@ -723,7 +842,16 @@ namespace NPC_Creator
 
         private void RunningCommand_Click(object sender, EventArgs e)
         {
-            eventCommandList.Items.Add("setRunning");
+            if (eventCommandList.SelectedIndex == -1)
+            {
+                eventCommandList.Items.Add("setRunning");
+            }
+            if (eventCommandList.SelectedIndex != -1)
+            {
+                eventCommandList.Items.Insert(eventCommandList.SelectedIndex, "setRunning");
+
+            }
+
         }
 
         private void ScreenFlashCommand_Click(object sender, EventArgs e)
@@ -735,7 +863,16 @@ namespace NPC_Creator
 
         private void StopRunCommand_Click(object sender, EventArgs e)
         {
-            eventCommandList.Items.Add("stopRunning");
+            if (eventCommandList.SelectedIndex == -1)
+            {
+                eventCommandList.Items.Add("stopRunning");
+            }
+            if (eventCommandList.SelectedIndex != -1)
+            {
+                eventCommandList.Items.Insert(eventCommandList.SelectedIndex, "stopRunning");
+
+            }
+
         }
 
         private void Finished_Event_Click(object sender, EventArgs e)
@@ -788,6 +925,251 @@ namespace NPC_Creator
             specificTempSprite frRem = new specificTempSprite();
             frRem.Text = "Specific Temporary Sprite";
             frRem.ShowDialog();
+        }
+
+        private void Start_Simultaneous_Click(object sender, EventArgs e)
+        {
+            if (eventCommandList.SelectedIndex == -1)
+            {
+                eventCommandList.Items.Add("beginSimultaneousCommand");
+            }
+            if (eventCommandList.SelectedIndex != -1)
+            {
+                eventCommandList.Items.Insert(eventCommandList.SelectedIndex, "beginSimultaneousCommand");
+
+            }
+
+        }
+
+        private void End_Simultaneous_Click(object sender, EventArgs e)
+        {
+            if (eventCommandList.SelectedIndex == -1)
+            {
+                eventCommandList.Items.Add("endSimultaneousCommand");
+            }
+            if (eventCommandList.SelectedIndex != -1)
+            {
+                eventCommandList.Items.Insert(eventCommandList.SelectedIndex, "endSimultaneousCommand");
+
+            }
+
+        }
+
+        private void RemoveCommand_Click(object sender, EventArgs e)
+        {
+            RemoveItem frRem = new RemoveItem();
+            frRem.Text = "Remove Item";
+            frRem.ShowDialog();
+        }
+
+        private void RemovePropCommand_Click(object sender, EventArgs e)
+        {
+            RemoveProp frRem = new RemoveProp();
+            frRem.Text = "Remove Prop";
+            frRem.ShowDialog();
+        }
+
+        private void RemoveAllSpritesCommand_Click(object sender, EventArgs e)
+        {
+            if (eventCommandList.SelectedIndex == -1)
+            {
+                eventCommandList.Items.Add("removeTemporarySprites");
+            }
+            if (eventCommandList.SelectedIndex != -1)
+            {
+                eventCommandList.Items.Insert(eventCommandList.SelectedIndex, "removeTemporarySprites");
+
+            }
+
+        }
+
+        private void RemoveSpriteCommand_Click(object sender, EventArgs e)
+        {
+            RemoveTempSprite frRem = new RemoveTempSprite();
+            frRem.Text = "Remove Temporary Sprite";
+            frRem.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e) //Clone button
+        {
+            if (mainEvent.Value != 0 && string.IsNullOrWhiteSpace(subEvent.Text))
+            {
+                //Create a full event
+                //First compile all conditions
+                foreach (var item in conditionsList.Items)
+                {
+                    string entry = item.ToString();
+                    conditionCommands.Add(entry);
+                }
+                //now compile all commands
+                foreach (var item in eventCommandList.Items)
+                {
+                    string entry = item.ToString();
+                    eventCommandManifest.Add(entry);
+                }
+                //Assemble Conditions
+                string conditionConstruct = $"{mainEvent.Value}/" + string.Join("/", conditionCommands);
+                //Assemble Commands
+                string eventConstruct = string.Join("/", eventCommandManifest);
+                //Put them together
+                Event_Studio mw = (Event_Studio)Application.OpenForms["Event_Studio"];
+                mw.addEventtoList(conditionConstruct, eventConstruct);
+                //Clone
+                int mainEventClone = (int)mainEvent.Value + 1;
+                conditionConstruct = $"{mainEventClone}/" + string.Join("/", conditionCommands);
+                mw.addEventtoList(conditionConstruct, eventConstruct);
+                this.Close();
+
+            }
+            if (!string.IsNullOrWhiteSpace(subEvent.Text) && mainEvent.Value == 0)
+            {
+                //compile the commands
+                foreach (var item in eventCommandList.Items)
+                {
+                    string entry = item.ToString();
+                    eventCommandManifest.Add(entry);
+                }
+                //assemble
+                string eventConstruct = string.Join("/", eventCommandManifest);
+                string conditionConstruct = subEvent.Text;
+                Event_Studio mw = (Event_Studio)Application.OpenForms["Event_Studio"];
+                mw.addEventtoList(conditionConstruct, eventConstruct);
+                conditionConstruct = subEvent.Text + "_clone";
+                mw.addEventtoList(conditionConstruct, eventConstruct);
+                this.Close();
+
+            }
+
+        }
+
+        private void DeselectButton_Click(object sender, EventArgs e)
+        {
+            eventCommandList.ClearSelected();
+        }
+
+        private void ChangeMapTileCommand_Click(object sender, EventArgs e)
+        {
+            ChangeMapTile frRem = new ChangeMapTile();
+            frRem.Text = "Change Map Tile";
+            frRem.ShowDialog();
+        }
+
+        private void ChangeToTempMapCommand_Click(object sender, EventArgs e)
+        {
+            ChangeToTempMap frRem = new ChangeToTempMap();
+            frRem.Text = "Change to Temporary Map";
+            frRem.ShowDialog();
+        }
+
+        private void CutsceneCommand_Click(object sender, EventArgs e)
+        {
+            AddCutscene frRem = new AddCutscene();
+            frRem.Text = $"Add Cutscene";
+            frRem.ShowDialog();
+        }
+
+
+        private void EyesCommand_Click(object sender, EventArgs e)
+        {
+            FarmerEyes frRem = new FarmerEyes();
+            frRem.Text = "Change Farmer Eyes";
+            frRem.ShowDialog();
+        }
+
+        private void FadeToClearCommand_Click(object sender, EventArgs e)
+        {
+            FadetoClear frRem = new FadetoClear();
+            frRem.Text = "Global Fade to Clear";
+            frRem.ShowDialog();
+        }
+
+        private void MakeInvisibleCommand_Click(object sender, EventArgs e)
+        {
+            MakeInvisible frRem = new MakeInvisible();
+            frRem.Text = "Make Tile Area Invisible";
+            frRem.ShowDialog();
+        }
+
+        private void PlayerContCommand_Click(object sender, EventArgs e)
+        {
+            if (eventCommandList.SelectedIndex == -1)
+            {
+                eventCommandList.Items.Add("playerControl");
+            }
+            if (eventCommandList.SelectedIndex != -1)
+            {
+                eventCommandList.Items.Insert(eventCommandList.SelectedIndex, "playerControl");
+            }
+
+        }
+
+        private void RemoveQuestCommand_Click(object sender, EventArgs e)
+        {
+            RemoveQuest frRem = new RemoveQuest();
+            frRem.Text = "Remove Quest";
+            frRem.ShowDialog();
+        }
+
+
+        private void SpeedCommand_Click(object sender, EventArgs e)
+        {
+            ModifySpeed frRem = new ModifySpeed();
+            frRem.Text = "Modify Speed";
+            frRem.ShowDialog();
+
+        }
+
+        private void StopAdvMoveCommand_Click(object sender, EventArgs e)
+        {
+            if (eventCommandList.SelectedIndex == -1)
+            {
+                eventCommandList.Items.Add("stopAdvandedMoves");
+            }
+            if (eventCommandList.SelectedIndex != -1)
+            {
+                eventCommandList.Items.Insert(eventCommandList.SelectedIndex, "stopAdvancedMoves");
+            }
+
+        }
+
+        private void SwimingCommands_Click(object sender, EventArgs e)
+        {
+            SwimmingContol frRem = new SwimmingContol();
+            frRem.Text = "Swimming Control Toggle";
+            frRem.ShowDialog();
+        }
+
+        private void ForgetEventCommand_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This command will make your mod REQUIRE the Event Repeater Mod.  Without the mod, this will have a negative impact on players without it!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ForgetEvents frRem = new ForgetEvents();
+            frRem.Text = "Forget Event";
+            frRem.ShowDialog();
+        }
+
+        private void ForgetMailCommand_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This command will make your mod REQUIRE the Event Repeater Mod.  Without the mod, this will have a negative impact on players without it!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ForgetMail frRem = new ForgetMail();
+            frRem.Text = "Forget Mail";
+            frRem.ShowDialog();
+        }
+
+        private void ForgetResponseCommand_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This command will make your mod REQUIRE the Event Repeater Mod.  Without the mod, this will have a negative impact on players without it!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ForgetResponses frRem = new ForgetResponses();
+            frRem.Text = "Forget Response";
+            frRem.ShowDialog();
+        }
+
+        private void TempSpriteCommand_Click(object sender, EventArgs e)
+        {
+            CreateTemporarySprite frRem = new CreateTemporarySprite();
+            frRem.Text = "Create Animated Sprite (Advanced)";
+            MessageBox.Show("This is an advanced command that I fully don't understand.  Use with care.", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            frRem.ShowDialog();
+
         }
     }
 }

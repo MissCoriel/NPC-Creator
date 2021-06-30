@@ -74,6 +74,10 @@
             this.DialogNotInProg = new System.Windows.Forms.Button();
             this.conditionsList = new System.Windows.Forms.ListBox();
             this.eventGroup = new System.Windows.Forms.GroupBox();
+            this.DeselectButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.End_Simultaneous = new System.Windows.Forms.Button();
+            this.Start_Simultaneous = new System.Windows.Forms.Button();
             this.DownButton = new System.Windows.Forms.Button();
             this.UpButton = new System.Windows.Forms.Button();
             this.EventClone = new System.Windows.Forms.Button();
@@ -99,12 +103,10 @@
             this.ChangeMapTileCommand = new System.Windows.Forms.Button();
             this.changePortraitCommand = new System.Windows.Forms.Button();
             this.ChangeToTempMapCommand = new System.Windows.Forms.Button();
-            this.ChangeYRectCommand = new System.Windows.Forms.Button();
             this.CutsceneCommand = new System.Windows.Forms.Button();
             this.DoActionCommand = new System.Windows.Forms.Button();
             this.EmoteCommand = new System.Windows.Forms.Button();
             this.EndEventCommand = new System.Windows.Forms.Button();
-            this.ExtendSourceResetCommand = new System.Windows.Forms.Button();
             this.EyesCommand = new System.Windows.Forms.Button();
             this.FaceDirectionCommand = new System.Windows.Forms.Button();
             this.FadeCommand = new System.Windows.Forms.Button();
@@ -127,13 +129,11 @@
             this.PlayerContCommand = new System.Windows.Forms.Button();
             this.PositionOffsetCommand = new System.Windows.Forms.Button();
             this.QuestionCommand = new System.Windows.Forms.Button();
-            this.QuickQuestionCommand = new System.Windows.Forms.Button();
             this.RemoveCommand = new System.Windows.Forms.Button();
             this.RemovePropCommand = new System.Windows.Forms.Button();
             this.RemoveQuestCommand = new System.Windows.Forms.Button();
             this.RemoveSpriteCommand = new System.Windows.Forms.Button();
             this.RemoveAllSpritesCommand = new System.Windows.Forms.Button();
-            this.RemoveTileCommand = new System.Windows.Forms.Button();
             this.ScreenFlashCommand = new System.Windows.Forms.Button();
             this.RunningCommand = new System.Windows.Forms.Button();
             this.ShakeCommand = new System.Windows.Forms.Button();
@@ -143,7 +143,6 @@
             this.SpeedCommand = new System.Windows.Forms.Button();
             this.JitterCommand = new System.Windows.Forms.Button();
             this.StopAdvMoveCommand = new System.Windows.Forms.Button();
-            this.StopAnimationFarmerCommand = new System.Windows.Forms.Button();
             this.StopAniCommand = new System.Windows.Forms.Button();
             this.StopGlowCommand = new System.Windows.Forms.Button();
             this.StopMusicCommand = new System.Windows.Forms.Button();
@@ -654,6 +653,10 @@
             // 
             // eventGroup
             // 
+            this.eventGroup.Controls.Add(this.DeselectButton);
+            this.eventGroup.Controls.Add(this.button1);
+            this.eventGroup.Controls.Add(this.End_Simultaneous);
+            this.eventGroup.Controls.Add(this.Start_Simultaneous);
             this.eventGroup.Controls.Add(this.DownButton);
             this.eventGroup.Controls.Add(this.UpButton);
             this.eventGroup.Controls.Add(this.EventClone);
@@ -669,6 +672,46 @@
             this.eventGroup.TabIndex = 42;
             this.eventGroup.TabStop = false;
             this.eventGroup.Text = "Event Commands";
+            // 
+            // DeselectButton
+            // 
+            this.DeselectButton.Location = new System.Drawing.Point(573, 325);
+            this.DeselectButton.Name = "DeselectButton";
+            this.DeselectButton.Size = new System.Drawing.Size(133, 23);
+            this.DeselectButton.TabIndex = 42;
+            this.DeselectButton.Text = "De-Select Item";
+            this.DeselectButton.UseVisualStyleBackColor = true;
+            this.DeselectButton.Click += new System.EventHandler(this.DeselectButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(573, 524);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 23);
+            this.button1.TabIndex = 124;
+            this.button1.Text = "Create and Clone";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // End_Simultaneous
+            // 
+            this.End_Simultaneous.Location = new System.Drawing.Point(573, 280);
+            this.End_Simultaneous.Name = "End_Simultaneous";
+            this.End_Simultaneous.Size = new System.Drawing.Size(133, 23);
+            this.End_Simultaneous.TabIndex = 123;
+            this.End_Simultaneous.Text = "End Simultaneous";
+            this.End_Simultaneous.UseVisualStyleBackColor = true;
+            this.End_Simultaneous.Click += new System.EventHandler(this.End_Simultaneous_Click);
+            // 
+            // Start_Simultaneous
+            // 
+            this.Start_Simultaneous.Location = new System.Drawing.Point(573, 238);
+            this.Start_Simultaneous.Name = "Start_Simultaneous";
+            this.Start_Simultaneous.Size = new System.Drawing.Size(133, 23);
+            this.Start_Simultaneous.TabIndex = 122;
+            this.Start_Simultaneous.Text = "Begin Simultaneous";
+            this.Start_Simultaneous.UseVisualStyleBackColor = true;
+            this.Start_Simultaneous.Click += new System.EventHandler(this.Start_Simultaneous_Click);
             // 
             // DownButton
             // 
@@ -750,12 +793,10 @@
             this.EventCommandPanel.Controls.Add(this.ChangeMapTileCommand);
             this.EventCommandPanel.Controls.Add(this.changePortraitCommand);
             this.EventCommandPanel.Controls.Add(this.ChangeToTempMapCommand);
-            this.EventCommandPanel.Controls.Add(this.ChangeYRectCommand);
             this.EventCommandPanel.Controls.Add(this.CutsceneCommand);
             this.EventCommandPanel.Controls.Add(this.DoActionCommand);
             this.EventCommandPanel.Controls.Add(this.EmoteCommand);
             this.EventCommandPanel.Controls.Add(this.EndEventCommand);
-            this.EventCommandPanel.Controls.Add(this.ExtendSourceResetCommand);
             this.EventCommandPanel.Controls.Add(this.EyesCommand);
             this.EventCommandPanel.Controls.Add(this.FaceDirectionCommand);
             this.EventCommandPanel.Controls.Add(this.FadeCommand);
@@ -778,13 +819,11 @@
             this.EventCommandPanel.Controls.Add(this.PlayerContCommand);
             this.EventCommandPanel.Controls.Add(this.PositionOffsetCommand);
             this.EventCommandPanel.Controls.Add(this.QuestionCommand);
-            this.EventCommandPanel.Controls.Add(this.QuickQuestionCommand);
             this.EventCommandPanel.Controls.Add(this.RemoveCommand);
             this.EventCommandPanel.Controls.Add(this.RemovePropCommand);
             this.EventCommandPanel.Controls.Add(this.RemoveQuestCommand);
             this.EventCommandPanel.Controls.Add(this.RemoveSpriteCommand);
             this.EventCommandPanel.Controls.Add(this.RemoveAllSpritesCommand);
-            this.EventCommandPanel.Controls.Add(this.RemoveTileCommand);
             this.EventCommandPanel.Controls.Add(this.ScreenFlashCommand);
             this.EventCommandPanel.Controls.Add(this.RunningCommand);
             this.EventCommandPanel.Controls.Add(this.ShakeCommand);
@@ -794,7 +833,6 @@
             this.EventCommandPanel.Controls.Add(this.SpeedCommand);
             this.EventCommandPanel.Controls.Add(this.JitterCommand);
             this.EventCommandPanel.Controls.Add(this.StopAdvMoveCommand);
-            this.EventCommandPanel.Controls.Add(this.StopAnimationFarmerCommand);
             this.EventCommandPanel.Controls.Add(this.StopAniCommand);
             this.EventCommandPanel.Controls.Add(this.StopGlowCommand);
             this.EventCommandPanel.Controls.Add(this.StopMusicCommand);
@@ -968,13 +1006,13 @@
             // 
             // ChangeMapTileCommand
             // 
-            this.ChangeMapTileCommand.Enabled = false;
             this.ChangeMapTileCommand.Location = new System.Drawing.Point(3, 438);
             this.ChangeMapTileCommand.Name = "ChangeMapTileCommand";
             this.ChangeMapTileCommand.Size = new System.Drawing.Size(197, 23);
             this.ChangeMapTileCommand.TabIndex = 59;
             this.ChangeMapTileCommand.Text = "Change Map Tile (Advanced)";
             this.ChangeMapTileCommand.UseVisualStyleBackColor = true;
+            this.ChangeMapTileCommand.Click += new System.EventHandler(this.ChangeMapTileCommand_Click);
             // 
             // changePortraitCommand
             // 
@@ -994,28 +1032,21 @@
             this.ChangeToTempMapCommand.TabIndex = 61;
             this.ChangeToTempMapCommand.Text = "Change To Temporary Map";
             this.ChangeToTempMapCommand.UseVisualStyleBackColor = true;
-            // 
-            // ChangeYRectCommand
-            // 
-            this.ChangeYRectCommand.Location = new System.Drawing.Point(3, 525);
-            this.ChangeYRectCommand.Name = "ChangeYRectCommand";
-            this.ChangeYRectCommand.Size = new System.Drawing.Size(197, 23);
-            this.ChangeYRectCommand.TabIndex = 62;
-            this.ChangeYRectCommand.Text = "Change Y Source Rect (Advanced)";
-            this.ChangeYRectCommand.UseVisualStyleBackColor = true;
+            this.ChangeToTempMapCommand.Click += new System.EventHandler(this.ChangeToTempMapCommand_Click);
             // 
             // CutsceneCommand
             // 
-            this.CutsceneCommand.Location = new System.Drawing.Point(3, 554);
+            this.CutsceneCommand.Location = new System.Drawing.Point(3, 525);
             this.CutsceneCommand.Name = "CutsceneCommand";
             this.CutsceneCommand.Size = new System.Drawing.Size(197, 23);
             this.CutsceneCommand.TabIndex = 63;
             this.CutsceneCommand.Text = "Start Cutscene (Advanced)";
             this.CutsceneCommand.UseVisualStyleBackColor = true;
+            this.CutsceneCommand.Click += new System.EventHandler(this.CutsceneCommand_Click);
             // 
             // DoActionCommand
             // 
-            this.DoActionCommand.Location = new System.Drawing.Point(3, 583);
+            this.DoActionCommand.Location = new System.Drawing.Point(3, 554);
             this.DoActionCommand.Name = "DoActionCommand";
             this.DoActionCommand.Size = new System.Drawing.Size(197, 23);
             this.DoActionCommand.TabIndex = 1;
@@ -1025,7 +1056,7 @@
             // 
             // EmoteCommand
             // 
-            this.EmoteCommand.Location = new System.Drawing.Point(3, 612);
+            this.EmoteCommand.Location = new System.Drawing.Point(3, 583);
             this.EmoteCommand.Name = "EmoteCommand";
             this.EmoteCommand.Size = new System.Drawing.Size(197, 23);
             this.EmoteCommand.TabIndex = 65;
@@ -1035,7 +1066,7 @@
             // 
             // EndEventCommand
             // 
-            this.EndEventCommand.Location = new System.Drawing.Point(3, 641);
+            this.EndEventCommand.Location = new System.Drawing.Point(3, 612);
             this.EndEventCommand.Name = "EndEventCommand";
             this.EndEventCommand.Size = new System.Drawing.Size(197, 23);
             this.EndEventCommand.TabIndex = 66;
@@ -1043,27 +1074,19 @@
             this.EndEventCommand.UseVisualStyleBackColor = true;
             this.EndEventCommand.Click += new System.EventHandler(this.EndEventCommand_Click);
             // 
-            // ExtendSourceResetCommand
-            // 
-            this.ExtendSourceResetCommand.Location = new System.Drawing.Point(3, 670);
-            this.ExtendSourceResetCommand.Name = "ExtendSourceResetCommand";
-            this.ExtendSourceResetCommand.Size = new System.Drawing.Size(197, 23);
-            this.ExtendSourceResetCommand.TabIndex = 67;
-            this.ExtendSourceResetCommand.Text = "Reset Source Rect (Advanced)";
-            this.ExtendSourceResetCommand.UseVisualStyleBackColor = true;
-            // 
             // EyesCommand
             // 
-            this.EyesCommand.Location = new System.Drawing.Point(3, 699);
+            this.EyesCommand.Location = new System.Drawing.Point(3, 641);
             this.EyesCommand.Name = "EyesCommand";
             this.EyesCommand.Size = new System.Drawing.Size(197, 23);
             this.EyesCommand.TabIndex = 68;
             this.EyesCommand.Text = "Change Farmer Eyes";
             this.EyesCommand.UseVisualStyleBackColor = true;
+            this.EyesCommand.Click += new System.EventHandler(this.EyesCommand_Click);
             // 
             // FaceDirectionCommand
             // 
-            this.FaceDirectionCommand.Location = new System.Drawing.Point(3, 728);
+            this.FaceDirectionCommand.Location = new System.Drawing.Point(3, 670);
             this.FaceDirectionCommand.Name = "FaceDirectionCommand";
             this.FaceDirectionCommand.Size = new System.Drawing.Size(197, 23);
             this.FaceDirectionCommand.TabIndex = 69;
@@ -1073,7 +1096,7 @@
             // 
             // FadeCommand
             // 
-            this.FadeCommand.Location = new System.Drawing.Point(3, 757);
+            this.FadeCommand.Location = new System.Drawing.Point(3, 699);
             this.FadeCommand.Name = "FadeCommand";
             this.FadeCommand.Size = new System.Drawing.Size(197, 23);
             this.FadeCommand.TabIndex = 70;
@@ -1083,7 +1106,7 @@
             // 
             // EatCommand
             // 
-            this.EatCommand.Location = new System.Drawing.Point(3, 786);
+            this.EatCommand.Location = new System.Drawing.Point(3, 728);
             this.EatCommand.Name = "EatCommand";
             this.EatCommand.Size = new System.Drawing.Size(197, 23);
             this.EatCommand.TabIndex = 71;
@@ -1093,7 +1116,7 @@
             // 
             // ForkCommand
             // 
-            this.ForkCommand.Location = new System.Drawing.Point(3, 815);
+            this.ForkCommand.Location = new System.Drawing.Point(3, 757);
             this.ForkCommand.Name = "ForkCommand";
             this.ForkCommand.Size = new System.Drawing.Size(197, 23);
             this.ForkCommand.TabIndex = 72;
@@ -1103,7 +1126,7 @@
             // 
             // FriendshipCommand
             // 
-            this.FriendshipCommand.Location = new System.Drawing.Point(3, 844);
+            this.FriendshipCommand.Location = new System.Drawing.Point(3, 786);
             this.FriendshipCommand.Name = "FriendshipCommand";
             this.FriendshipCommand.Size = new System.Drawing.Size(197, 23);
             this.FriendshipCommand.TabIndex = 73;
@@ -1113,7 +1136,7 @@
             // 
             // GlobalFadeCommand
             // 
-            this.GlobalFadeCommand.Location = new System.Drawing.Point(3, 873);
+            this.GlobalFadeCommand.Location = new System.Drawing.Point(3, 815);
             this.GlobalFadeCommand.Name = "GlobalFadeCommand";
             this.GlobalFadeCommand.Size = new System.Drawing.Size(197, 23);
             this.GlobalFadeCommand.TabIndex = 43;
@@ -1123,16 +1146,17 @@
             // 
             // FadeToClearCommand
             // 
-            this.FadeToClearCommand.Location = new System.Drawing.Point(3, 902);
+            this.FadeToClearCommand.Location = new System.Drawing.Point(3, 844);
             this.FadeToClearCommand.Name = "FadeToClearCommand";
             this.FadeToClearCommand.Size = new System.Drawing.Size(197, 23);
             this.FadeToClearCommand.TabIndex = 74;
             this.FadeToClearCommand.Text = "Global Fade to Clear";
             this.FadeToClearCommand.UseVisualStyleBackColor = true;
+            this.FadeToClearCommand.Click += new System.EventHandler(this.FadeToClearCommand_Click);
             // 
             // GlowCommand
             // 
-            this.GlowCommand.Location = new System.Drawing.Point(3, 931);
+            this.GlowCommand.Location = new System.Drawing.Point(3, 873);
             this.GlowCommand.Name = "GlowCommand";
             this.GlowCommand.Size = new System.Drawing.Size(197, 23);
             this.GlowCommand.TabIndex = 75;
@@ -1142,7 +1166,7 @@
             // 
             // HaltCommand
             // 
-            this.HaltCommand.Location = new System.Drawing.Point(3, 960);
+            this.HaltCommand.Location = new System.Drawing.Point(3, 902);
             this.HaltCommand.Name = "HaltCommand";
             this.HaltCommand.Size = new System.Drawing.Size(197, 23);
             this.HaltCommand.TabIndex = 76;
@@ -1152,7 +1176,7 @@
             // 
             // ItemOverheadCommand
             // 
-            this.ItemOverheadCommand.Location = new System.Drawing.Point(3, 989);
+            this.ItemOverheadCommand.Location = new System.Drawing.Point(3, 931);
             this.ItemOverheadCommand.Name = "ItemOverheadCommand";
             this.ItemOverheadCommand.Size = new System.Drawing.Size(197, 23);
             this.ItemOverheadCommand.TabIndex = 77;
@@ -1161,7 +1185,7 @@
             // 
             // JumpCommand
             // 
-            this.JumpCommand.Location = new System.Drawing.Point(3, 1018);
+            this.JumpCommand.Location = new System.Drawing.Point(3, 960);
             this.JumpCommand.Name = "JumpCommand";
             this.JumpCommand.Size = new System.Drawing.Size(197, 23);
             this.JumpCommand.TabIndex = 78;
@@ -1171,16 +1195,17 @@
             // 
             // MakeInvisibleCommand
             // 
-            this.MakeInvisibleCommand.Location = new System.Drawing.Point(3, 1047);
+            this.MakeInvisibleCommand.Location = new System.Drawing.Point(3, 989);
             this.MakeInvisibleCommand.Name = "MakeInvisibleCommand";
             this.MakeInvisibleCommand.Size = new System.Drawing.Size(197, 23);
             this.MakeInvisibleCommand.TabIndex = 79;
             this.MakeInvisibleCommand.Text = "Make Map Props Invisible";
             this.MakeInvisibleCommand.UseVisualStyleBackColor = true;
+            this.MakeInvisibleCommand.Click += new System.EventHandler(this.MakeInvisibleCommand_Click);
             // 
             // MailCommand
             // 
-            this.MailCommand.Location = new System.Drawing.Point(3, 1076);
+            this.MailCommand.Location = new System.Drawing.Point(3, 1018);
             this.MailCommand.Name = "MailCommand";
             this.MailCommand.Size = new System.Drawing.Size(197, 23);
             this.MailCommand.TabIndex = 80;
@@ -1190,7 +1215,7 @@
             // 
             // MessageCommand
             // 
-            this.MessageCommand.Location = new System.Drawing.Point(3, 1105);
+            this.MessageCommand.Location = new System.Drawing.Point(3, 1047);
             this.MessageCommand.Name = "MessageCommand";
             this.MessageCommand.Size = new System.Drawing.Size(197, 23);
             this.MessageCommand.TabIndex = 81;
@@ -1200,7 +1225,7 @@
             // 
             // MoveCommand
             // 
-            this.MoveCommand.Location = new System.Drawing.Point(3, 1134);
+            this.MoveCommand.Location = new System.Drawing.Point(3, 1076);
             this.MoveCommand.Name = "MoveCommand";
             this.MoveCommand.Size = new System.Drawing.Size(197, 23);
             this.MoveCommand.TabIndex = 82;
@@ -1210,7 +1235,7 @@
             // 
             // PauseCommand
             // 
-            this.PauseCommand.Location = new System.Drawing.Point(3, 1163);
+            this.PauseCommand.Location = new System.Drawing.Point(3, 1105);
             this.PauseCommand.Name = "PauseCommand";
             this.PauseCommand.Size = new System.Drawing.Size(197, 23);
             this.PauseCommand.TabIndex = 83;
@@ -1220,7 +1245,7 @@
             // 
             // PlayMusicCommand
             // 
-            this.PlayMusicCommand.Location = new System.Drawing.Point(3, 1192);
+            this.PlayMusicCommand.Location = new System.Drawing.Point(3, 1134);
             this.PlayMusicCommand.Name = "PlayMusicCommand";
             this.PlayMusicCommand.Size = new System.Drawing.Size(197, 23);
             this.PlayMusicCommand.TabIndex = 84;
@@ -1230,7 +1255,7 @@
             // 
             // PlaySoundCommand
             // 
-            this.PlaySoundCommand.Location = new System.Drawing.Point(3, 1221);
+            this.PlaySoundCommand.Location = new System.Drawing.Point(3, 1163);
             this.PlaySoundCommand.Name = "PlaySoundCommand";
             this.PlaySoundCommand.Size = new System.Drawing.Size(197, 23);
             this.PlaySoundCommand.TabIndex = 85;
@@ -1240,16 +1265,17 @@
             // 
             // PlayerContCommand
             // 
-            this.PlayerContCommand.Location = new System.Drawing.Point(3, 1250);
+            this.PlayerContCommand.Location = new System.Drawing.Point(3, 1192);
             this.PlayerContCommand.Name = "PlayerContCommand";
             this.PlayerContCommand.Size = new System.Drawing.Size(197, 23);
             this.PlayerContCommand.TabIndex = 86;
             this.PlayerContCommand.Text = "Give Player Control (Advanced)";
             this.PlayerContCommand.UseVisualStyleBackColor = true;
+            this.PlayerContCommand.Click += new System.EventHandler(this.PlayerContCommand_Click);
             // 
             // PositionOffsetCommand
             // 
-            this.PositionOffsetCommand.Location = new System.Drawing.Point(3, 1279);
+            this.PositionOffsetCommand.Location = new System.Drawing.Point(3, 1221);
             this.PositionOffsetCommand.Name = "PositionOffsetCommand";
             this.PositionOffsetCommand.Size = new System.Drawing.Size(197, 23);
             this.PositionOffsetCommand.TabIndex = 87;
@@ -1259,7 +1285,7 @@
             // 
             // QuestionCommand
             // 
-            this.QuestionCommand.Location = new System.Drawing.Point(3, 1308);
+            this.QuestionCommand.Location = new System.Drawing.Point(3, 1250);
             this.QuestionCommand.Name = "QuestionCommand";
             this.QuestionCommand.Size = new System.Drawing.Size(197, 23);
             this.QuestionCommand.TabIndex = 88;
@@ -1267,73 +1293,59 @@
             this.QuestionCommand.UseVisualStyleBackColor = true;
             this.QuestionCommand.Click += new System.EventHandler(this.QuestionCommand_Click);
             // 
-            // QuickQuestionCommand
-            // 
-            this.QuickQuestionCommand.Enabled = false;
-            this.QuickQuestionCommand.Location = new System.Drawing.Point(3, 1337);
-            this.QuickQuestionCommand.Name = "QuickQuestionCommand";
-            this.QuickQuestionCommand.Size = new System.Drawing.Size(197, 23);
-            this.QuickQuestionCommand.TabIndex = 89;
-            this.QuickQuestionCommand.Text = "Create Quick Question";
-            this.QuickQuestionCommand.UseVisualStyleBackColor = true;
-            // 
             // RemoveCommand
             // 
-            this.RemoveCommand.Location = new System.Drawing.Point(3, 1366);
+            this.RemoveCommand.Location = new System.Drawing.Point(3, 1279);
             this.RemoveCommand.Name = "RemoveCommand";
             this.RemoveCommand.Size = new System.Drawing.Size(197, 23);
             this.RemoveCommand.TabIndex = 90;
             this.RemoveCommand.Text = "Remove Item in Inventory";
             this.RemoveCommand.UseVisualStyleBackColor = true;
+            this.RemoveCommand.Click += new System.EventHandler(this.RemoveCommand_Click);
             // 
             // RemovePropCommand
             // 
-            this.RemovePropCommand.Location = new System.Drawing.Point(3, 1395);
+            this.RemovePropCommand.Location = new System.Drawing.Point(3, 1308);
             this.RemovePropCommand.Name = "RemovePropCommand";
             this.RemovePropCommand.Size = new System.Drawing.Size(197, 23);
             this.RemovePropCommand.TabIndex = 91;
             this.RemovePropCommand.Text = "Remove Prop";
             this.RemovePropCommand.UseVisualStyleBackColor = true;
+            this.RemovePropCommand.Click += new System.EventHandler(this.RemovePropCommand_Click);
             // 
             // RemoveQuestCommand
             // 
-            this.RemoveQuestCommand.Location = new System.Drawing.Point(3, 1424);
+            this.RemoveQuestCommand.Location = new System.Drawing.Point(3, 1337);
             this.RemoveQuestCommand.Name = "RemoveQuestCommand";
             this.RemoveQuestCommand.Size = new System.Drawing.Size(197, 23);
             this.RemoveQuestCommand.TabIndex = 92;
             this.RemoveQuestCommand.Text = "Remove Quest (Advanced)";
             this.RemoveQuestCommand.UseVisualStyleBackColor = true;
+            this.RemoveQuestCommand.Click += new System.EventHandler(this.RemoveQuestCommand_Click);
             // 
             // RemoveSpriteCommand
             // 
-            this.RemoveSpriteCommand.Location = new System.Drawing.Point(3, 1453);
+            this.RemoveSpriteCommand.Location = new System.Drawing.Point(3, 1366);
             this.RemoveSpriteCommand.Name = "RemoveSpriteCommand";
             this.RemoveSpriteCommand.Size = new System.Drawing.Size(197, 23);
             this.RemoveSpriteCommand.TabIndex = 93;
             this.RemoveSpriteCommand.Text = "Remove Temporary Sprite";
             this.RemoveSpriteCommand.UseVisualStyleBackColor = true;
+            this.RemoveSpriteCommand.Click += new System.EventHandler(this.RemoveSpriteCommand_Click);
             // 
             // RemoveAllSpritesCommand
             // 
-            this.RemoveAllSpritesCommand.Location = new System.Drawing.Point(3, 1482);
+            this.RemoveAllSpritesCommand.Location = new System.Drawing.Point(3, 1395);
             this.RemoveAllSpritesCommand.Name = "RemoveAllSpritesCommand";
             this.RemoveAllSpritesCommand.Size = new System.Drawing.Size(197, 23);
             this.RemoveAllSpritesCommand.TabIndex = 94;
             this.RemoveAllSpritesCommand.Text = "Remove All Temp Sprites";
             this.RemoveAllSpritesCommand.UseVisualStyleBackColor = true;
-            // 
-            // RemoveTileCommand
-            // 
-            this.RemoveTileCommand.Location = new System.Drawing.Point(3, 1511);
-            this.RemoveTileCommand.Name = "RemoveTileCommand";
-            this.RemoveTileCommand.Size = new System.Drawing.Size(197, 23);
-            this.RemoveTileCommand.TabIndex = 95;
-            this.RemoveTileCommand.Text = "Remove Tile From Map";
-            this.RemoveTileCommand.UseVisualStyleBackColor = true;
+            this.RemoveAllSpritesCommand.Click += new System.EventHandler(this.RemoveAllSpritesCommand_Click);
             // 
             // ScreenFlashCommand
             // 
-            this.ScreenFlashCommand.Location = new System.Drawing.Point(3, 1540);
+            this.ScreenFlashCommand.Location = new System.Drawing.Point(3, 1424);
             this.ScreenFlashCommand.Name = "ScreenFlashCommand";
             this.ScreenFlashCommand.Size = new System.Drawing.Size(197, 23);
             this.ScreenFlashCommand.TabIndex = 96;
@@ -1343,7 +1355,7 @@
             // 
             // RunningCommand
             // 
-            this.RunningCommand.Location = new System.Drawing.Point(3, 1569);
+            this.RunningCommand.Location = new System.Drawing.Point(3, 1453);
             this.RunningCommand.Name = "RunningCommand";
             this.RunningCommand.Size = new System.Drawing.Size(197, 23);
             this.RunningCommand.TabIndex = 97;
@@ -1353,7 +1365,7 @@
             // 
             // ShakeCommand
             // 
-            this.ShakeCommand.Location = new System.Drawing.Point(3, 1598);
+            this.ShakeCommand.Location = new System.Drawing.Point(3, 1482);
             this.ShakeCommand.Name = "ShakeCommand";
             this.ShakeCommand.Size = new System.Drawing.Size(197, 23);
             this.ShakeCommand.TabIndex = 98;
@@ -1363,7 +1375,7 @@
             // 
             // ShowFrameCommand
             // 
-            this.ShowFrameCommand.Location = new System.Drawing.Point(3, 1627);
+            this.ShowFrameCommand.Location = new System.Drawing.Point(3, 1511);
             this.ShowFrameCommand.Name = "ShowFrameCommand";
             this.ShowFrameCommand.Size = new System.Drawing.Size(197, 23);
             this.ShowFrameCommand.TabIndex = 99;
@@ -1373,7 +1385,7 @@
             // 
             // SpeakCommand
             // 
-            this.SpeakCommand.Location = new System.Drawing.Point(3, 1656);
+            this.SpeakCommand.Location = new System.Drawing.Point(3, 1540);
             this.SpeakCommand.Name = "SpeakCommand";
             this.SpeakCommand.Size = new System.Drawing.Size(197, 23);
             this.SpeakCommand.TabIndex = 100;
@@ -1383,7 +1395,7 @@
             // 
             // SpecificTempCommand
             // 
-            this.SpecificTempCommand.Location = new System.Drawing.Point(3, 1685);
+            this.SpecificTempCommand.Location = new System.Drawing.Point(3, 1569);
             this.SpecificTempCommand.Name = "SpecificTempCommand";
             this.SpecificTempCommand.Size = new System.Drawing.Size(197, 23);
             this.SpecificTempCommand.TabIndex = 101;
@@ -1393,17 +1405,17 @@
             // 
             // SpeedCommand
             // 
-            this.SpeedCommand.Enabled = false;
-            this.SpeedCommand.Location = new System.Drawing.Point(3, 1714);
+            this.SpeedCommand.Location = new System.Drawing.Point(3, 1598);
             this.SpeedCommand.Name = "SpeedCommand";
             this.SpeedCommand.Size = new System.Drawing.Size(197, 23);
             this.SpeedCommand.TabIndex = 102;
             this.SpeedCommand.Text = "Change Actor\'s Speed";
             this.SpeedCommand.UseVisualStyleBackColor = true;
+            this.SpeedCommand.Click += new System.EventHandler(this.SpeedCommand_Click);
             // 
             // JitterCommand
             // 
-            this.JitterCommand.Location = new System.Drawing.Point(3, 1743);
+            this.JitterCommand.Location = new System.Drawing.Point(3, 1627);
             this.JitterCommand.Name = "JitterCommand";
             this.JitterCommand.Size = new System.Drawing.Size(197, 23);
             this.JitterCommand.TabIndex = 104;
@@ -1413,26 +1425,17 @@
             // 
             // StopAdvMoveCommand
             // 
-            this.StopAdvMoveCommand.Location = new System.Drawing.Point(3, 1772);
+            this.StopAdvMoveCommand.Location = new System.Drawing.Point(3, 1656);
             this.StopAdvMoveCommand.Name = "StopAdvMoveCommand";
             this.StopAdvMoveCommand.Size = new System.Drawing.Size(197, 23);
             this.StopAdvMoveCommand.TabIndex = 105;
             this.StopAdvMoveCommand.Text = "Stop Advanced Movement";
             this.StopAdvMoveCommand.UseVisualStyleBackColor = true;
-            // 
-            // StopAnimationFarmerCommand
-            // 
-            this.StopAnimationFarmerCommand.Enabled = false;
-            this.StopAnimationFarmerCommand.Location = new System.Drawing.Point(3, 1801);
-            this.StopAnimationFarmerCommand.Name = "StopAnimationFarmerCommand";
-            this.StopAnimationFarmerCommand.Size = new System.Drawing.Size(197, 23);
-            this.StopAnimationFarmerCommand.TabIndex = 106;
-            this.StopAnimationFarmerCommand.Text = "Stop Farmer Animation";
-            this.StopAnimationFarmerCommand.UseVisualStyleBackColor = true;
+            this.StopAdvMoveCommand.Click += new System.EventHandler(this.StopAdvMoveCommand_Click);
             // 
             // StopAniCommand
             // 
-            this.StopAniCommand.Location = new System.Drawing.Point(3, 1830);
+            this.StopAniCommand.Location = new System.Drawing.Point(3, 1685);
             this.StopAniCommand.Name = "StopAniCommand";
             this.StopAniCommand.Size = new System.Drawing.Size(197, 23);
             this.StopAniCommand.TabIndex = 107;
@@ -1442,7 +1445,7 @@
             // 
             // StopGlowCommand
             // 
-            this.StopGlowCommand.Location = new System.Drawing.Point(3, 1859);
+            this.StopGlowCommand.Location = new System.Drawing.Point(3, 1714);
             this.StopGlowCommand.Name = "StopGlowCommand";
             this.StopGlowCommand.Size = new System.Drawing.Size(197, 23);
             this.StopGlowCommand.TabIndex = 108;
@@ -1452,7 +1455,7 @@
             // 
             // StopMusicCommand
             // 
-            this.StopMusicCommand.Location = new System.Drawing.Point(3, 1888);
+            this.StopMusicCommand.Location = new System.Drawing.Point(3, 1743);
             this.StopMusicCommand.Name = "StopMusicCommand";
             this.StopMusicCommand.Size = new System.Drawing.Size(197, 23);
             this.StopMusicCommand.TabIndex = 109;
@@ -1462,7 +1465,7 @@
             // 
             // StopRunCommand
             // 
-            this.StopRunCommand.Location = new System.Drawing.Point(3, 1917);
+            this.StopRunCommand.Location = new System.Drawing.Point(3, 1772);
             this.StopRunCommand.Name = "StopRunCommand";
             this.StopRunCommand.Size = new System.Drawing.Size(197, 23);
             this.StopRunCommand.TabIndex = 110;
@@ -1472,17 +1475,17 @@
             // 
             // SwimingCommands
             // 
-            this.SwimingCommands.Enabled = false;
-            this.SwimingCommands.Location = new System.Drawing.Point(3, 1946);
+            this.SwimingCommands.Location = new System.Drawing.Point(3, 1801);
             this.SwimingCommands.Name = "SwimingCommands";
             this.SwimingCommands.Size = new System.Drawing.Size(197, 23);
             this.SwimingCommands.TabIndex = 111;
             this.SwimingCommands.Text = "Swimming Toggle";
             this.SwimingCommands.UseVisualStyleBackColor = true;
+            this.SwimingCommands.Click += new System.EventHandler(this.SwimingCommands_Click);
             // 
             // SwitchEventCommands
             // 
-            this.SwitchEventCommands.Location = new System.Drawing.Point(3, 1975);
+            this.SwitchEventCommands.Location = new System.Drawing.Point(3, 1830);
             this.SwitchEventCommands.Name = "SwitchEventCommands";
             this.SwitchEventCommands.Size = new System.Drawing.Size(197, 23);
             this.SwitchEventCommands.TabIndex = 112;
@@ -1492,17 +1495,17 @@
             // 
             // TempSpriteCommand
             // 
-            this.TempSpriteCommand.Enabled = false;
-            this.TempSpriteCommand.Location = new System.Drawing.Point(3, 2004);
+            this.TempSpriteCommand.Location = new System.Drawing.Point(3, 1859);
             this.TempSpriteCommand.Name = "TempSpriteCommand";
             this.TempSpriteCommand.Size = new System.Drawing.Size(197, 23);
             this.TempSpriteCommand.TabIndex = 113;
             this.TempSpriteCommand.Text = "Create Temporary Sprite (Advanced)";
             this.TempSpriteCommand.UseVisualStyleBackColor = true;
+            this.TempSpriteCommand.Click += new System.EventHandler(this.TempSpriteCommand_Click);
             // 
             // TextAboveCommand
             // 
-            this.TextAboveCommand.Location = new System.Drawing.Point(3, 2033);
+            this.TextAboveCommand.Location = new System.Drawing.Point(3, 1888);
             this.TextAboveCommand.Name = "TextAboveCommand";
             this.TextAboveCommand.Size = new System.Drawing.Size(197, 23);
             this.TextAboveCommand.TabIndex = 114;
@@ -1512,7 +1515,7 @@
             // 
             // ViewportCommand
             // 
-            this.ViewportCommand.Location = new System.Drawing.Point(3, 2062);
+            this.ViewportCommand.Location = new System.Drawing.Point(3, 1917);
             this.ViewportCommand.Name = "ViewportCommand";
             this.ViewportCommand.Size = new System.Drawing.Size(197, 23);
             this.ViewportCommand.TabIndex = 115;
@@ -1522,7 +1525,7 @@
             // 
             // VPMoveCommand
             // 
-            this.VPMoveCommand.Location = new System.Drawing.Point(3, 2091);
+            this.VPMoveCommand.Location = new System.Drawing.Point(3, 1946);
             this.VPMoveCommand.Name = "VPMoveCommand";
             this.VPMoveCommand.Size = new System.Drawing.Size(197, 23);
             this.VPMoveCommand.TabIndex = 116;
@@ -1532,7 +1535,7 @@
             // 
             // WarpCommand
             // 
-            this.WarpCommand.Location = new System.Drawing.Point(3, 2120);
+            this.WarpCommand.Location = new System.Drawing.Point(3, 1975);
             this.WarpCommand.Name = "WarpCommand";
             this.WarpCommand.Size = new System.Drawing.Size(197, 23);
             this.WarpCommand.TabIndex = 117;
@@ -1542,37 +1545,37 @@
             // 
             // ForgetEventCommand
             // 
-            this.ForgetEventCommand.Enabled = false;
-            this.ForgetEventCommand.Location = new System.Drawing.Point(3, 2149);
+            this.ForgetEventCommand.Location = new System.Drawing.Point(3, 2004);
             this.ForgetEventCommand.Name = "ForgetEventCommand";
             this.ForgetEventCommand.Size = new System.Drawing.Size(197, 23);
             this.ForgetEventCommand.TabIndex = 118;
             this.ForgetEventCommand.Text = "(Event Repeater) Forget Seen Event";
             this.ForgetEventCommand.UseVisualStyleBackColor = true;
+            this.ForgetEventCommand.Click += new System.EventHandler(this.ForgetEventCommand_Click);
             // 
             // ForgetMailCommand
             // 
-            this.ForgetMailCommand.Enabled = false;
-            this.ForgetMailCommand.Location = new System.Drawing.Point(3, 2178);
+            this.ForgetMailCommand.Location = new System.Drawing.Point(3, 2033);
             this.ForgetMailCommand.Name = "ForgetMailCommand";
             this.ForgetMailCommand.Size = new System.Drawing.Size(197, 23);
             this.ForgetMailCommand.TabIndex = 119;
             this.ForgetMailCommand.Text = "(Event Repeater) Forget Seen Mail";
             this.ForgetMailCommand.UseVisualStyleBackColor = true;
+            this.ForgetMailCommand.Click += new System.EventHandler(this.ForgetMailCommand_Click);
             // 
             // ForgetResponseCommand
             // 
-            this.ForgetResponseCommand.Enabled = false;
-            this.ForgetResponseCommand.Location = new System.Drawing.Point(3, 2207);
+            this.ForgetResponseCommand.Location = new System.Drawing.Point(3, 2062);
             this.ForgetResponseCommand.Name = "ForgetResponseCommand";
             this.ForgetResponseCommand.Size = new System.Drawing.Size(197, 23);
             this.ForgetResponseCommand.TabIndex = 120;
             this.ForgetResponseCommand.Text = "(Event Repeater) Forget Responses";
             this.ForgetResponseCommand.UseVisualStyleBackColor = true;
+            this.ForgetResponseCommand.Click += new System.EventHandler(this.ForgetResponseCommand_Click);
             // 
             // Finished_Event
             // 
-            this.Finished_Event.Location = new System.Drawing.Point(573, 512);
+            this.Finished_Event.Location = new System.Drawing.Point(573, 495);
             this.Finished_Event.Name = "Finished_Event";
             this.Finished_Event.Size = new System.Drawing.Size(133, 23);
             this.Finished_Event.TabIndex = 121;
@@ -1582,8 +1585,10 @@
             // 
             // Conditions
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScroll = true;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1377, 665);
             this.Controls.Add(this.eventGroup);
             this.Controls.Add(this.conditionsGroup);
@@ -1669,12 +1674,10 @@
         private System.Windows.Forms.Button ChangeMapTileCommand;
         private System.Windows.Forms.Button changePortraitCommand;
         private System.Windows.Forms.Button ChangeToTempMapCommand;
-        private System.Windows.Forms.Button ChangeYRectCommand;
         private System.Windows.Forms.Button CutsceneCommand;
         private System.Windows.Forms.Button DoActionCommand;
         private System.Windows.Forms.Button EmoteCommand;
         private System.Windows.Forms.Button EndEventCommand;
-        private System.Windows.Forms.Button ExtendSourceResetCommand;
         private System.Windows.Forms.Button EyesCommand;
         private System.Windows.Forms.Button FaceDirectionCommand;
         private System.Windows.Forms.Button FadeCommand;
@@ -1697,13 +1700,11 @@
         private System.Windows.Forms.Button PlayerContCommand;
         private System.Windows.Forms.Button PositionOffsetCommand;
         private System.Windows.Forms.Button QuestionCommand;
-        private System.Windows.Forms.Button QuickQuestionCommand;
         private System.Windows.Forms.Button RemoveCommand;
         private System.Windows.Forms.Button RemovePropCommand;
         private System.Windows.Forms.Button RemoveQuestCommand;
         private System.Windows.Forms.Button RemoveSpriteCommand;
         private System.Windows.Forms.Button RemoveAllSpritesCommand;
-        private System.Windows.Forms.Button RemoveTileCommand;
         private System.Windows.Forms.Button ScreenFlashCommand;
         private System.Windows.Forms.Button RunningCommand;
         private System.Windows.Forms.Button ShakeCommand;
@@ -1713,7 +1714,6 @@
         private System.Windows.Forms.Button SpeedCommand;
         private System.Windows.Forms.Button JitterCommand;
         private System.Windows.Forms.Button StopAdvMoveCommand;
-        private System.Windows.Forms.Button StopAnimationFarmerCommand;
         private System.Windows.Forms.Button StopAniCommand;
         private System.Windows.Forms.Button StopGlowCommand;
         private System.Windows.Forms.Button StopMusicCommand;
@@ -1734,5 +1734,9 @@
         private System.Windows.Forms.Button DownButton;
         private System.Windows.Forms.Button UpButton;
         private System.Windows.Forms.Button Finished_Event;
+        private System.Windows.Forms.Button End_Simultaneous;
+        private System.Windows.Forms.Button Start_Simultaneous;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button DeselectButton;
     }
 }
