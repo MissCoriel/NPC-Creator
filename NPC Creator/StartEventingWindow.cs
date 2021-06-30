@@ -62,10 +62,10 @@ namespace NPC_Creator
                 File.WriteAllLines(Environment.CurrentDirectory + "\\Save Data\\TempEventInformation\\tempEventActorData.txt", castingList);
                 //Create Initial Commands
                 string parse = string.Join(" ", actorCast);
-                mw.addCommandtoList(parse);
+                mw.addInitialstoList(parse);
                 if(skippableEvent.Checked == true)
                 {
-                    mw.addCommandtoList("skippable");
+                    mw.addInitialstoList("skippable");
                 }
                 this.Close();
 
