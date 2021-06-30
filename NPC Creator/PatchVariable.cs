@@ -14,7 +14,7 @@ namespace NPC_Creator
         public string Target { get; set; }
         public string FromFile { get; set; }
         public IDictionary<string, string> When { get; set; }
-       
+        public FestivalModel[] TextOperations { get; set; }
 
         public IDictionary<string, string> Entries { get; set; }
 

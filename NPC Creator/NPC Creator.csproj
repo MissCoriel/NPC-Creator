@@ -87,6 +87,12 @@
     <Compile Include="AddCraftingRecipe.Designer.cs">
       <DependentUpon>AddCraftingRecipe.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddCutscene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCutscene.Designer.cs">
+      <DependentUpon>AddCutscene.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddLantern.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,12 @@
     </Compile>
     <Compile Include="AddQuest.Designer.cs">
       <DependentUpon>AddQuest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddToFestival.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddToFestival.Designer.cs">
+      <DependentUpon>AddToFestival.cs</DependentUpon>
     </Compile>
     <Compile Include="Add_Items.cs">
       <SubType>Form</SubType>
@@ -171,6 +183,18 @@
     <Compile Include="ChangeLocation.Designer.cs">
       <DependentUpon>ChangeLocation.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeMapTile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeMapTile.Designer.cs">
+      <DependentUpon>ChangeMapTile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeToTempMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeToTempMap.Designer.cs">
+      <DependentUpon>ChangeToTempMap.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangeViewport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +236,12 @@
     </Compile>
     <Compile Include="CreateMessage.Designer.cs">
       <DependentUpon>CreateMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTemporarySprite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateTemporarySprite.Designer.cs">
+      <DependentUpon>CreateTemporarySprite.cs</DependentUpon>
     </Compile>
     <Compile Include="DayInSeason.cs">
       <SubType>Form</SubType>
@@ -310,11 +340,23 @@
     <Compile Include="FaceDirection.Designer.cs">
       <DependentUpon>FaceDirection.cs</DependentUpon>
     </Compile>
+    <Compile Include="FadetoClear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FadetoClear.Designer.cs">
+      <DependentUpon>FadetoClear.cs</DependentUpon>
+    </Compile>
     <Compile Include="FarmerEat.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FarmerEat.Designer.cs">
       <DependentUpon>FarmerEat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FarmerEyes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FarmerEyes.Designer.cs">
+      <DependentUpon>FarmerEyes.cs</DependentUpon>
     </Compile>
     <Compile Include="FarmerGender.cs">
       <SubType>Form</SubType>
@@ -333,6 +375,25 @@
     </Compile>
     <Compile Include="Fast_Question.Designer.cs">
       <DependentUpon>Fast_Question.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FestivalModel.cs" />
+    <Compile Include="ForgetEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgetEvents.Designer.cs">
+      <DependentUpon>ForgetEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ForgetMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgetMail.Designer.cs">
+      <DependentUpon>ForgetMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ForgetResponses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgetResponses.Designer.cs">
+      <DependentUpon>ForgetResponses.cs</DependentUpon>
     </Compile>
     <Compile Include="FriendshipPoints.cs">
       <SubType>Form</SubType>
@@ -394,6 +455,12 @@
     <Compile Include="MailLetter.Designer.cs">
       <DependentUpon>MailLetter.cs</DependentUpon>
     </Compile>
+    <Compile Include="MakeInvisible.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MakeInvisible.Designer.cs">
+      <DependentUpon>MakeInvisible.cs</DependentUpon>
+    </Compile>
     <Compile Include="MarriedCheck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -405,6 +472,12 @@
     </Compile>
     <Compile Include="ModifyFP.Designer.cs">
       <DependentUpon>ModifyFP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifySpeed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifySpeed.Designer.cs">
+      <DependentUpon>ModifySpeed.cs</DependentUpon>
     </Compile>
     <Compile Include="MoveActor.cs">
       <SubType>Form</SubType>
@@ -472,6 +545,12 @@
     <Compile Include="OpenInvSlots.Designer.cs">
       <DependentUpon>OpenInvSlots.cs</DependentUpon>
     </Compile>
+    <Compile Include="PasteEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasteEvent.Designer.cs">
+      <DependentUpon>PasteEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pause Event.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -508,7 +587,32 @@
     <Compile Include="PositionOffset.Designer.cs">
       <DependentUpon>PositionOffset.cs</DependentUpon>
     </Compile>
+    <Compile Include="RawModel.cs" />
     <Compile Include="References.cs" />
+    <Compile Include="RemoveItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveItem.Designer.cs">
+      <DependentUpon>RemoveItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveProp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveProp.Designer.cs">
+      <DependentUpon>RemoveProp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveQuest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveQuest.Designer.cs">
+      <DependentUpon>RemoveQuest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveTempSprite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveTempSprite.Designer.cs">
+      <DependentUpon>RemoveTempSprite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Schedule Dialogue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -610,6 +714,12 @@
     <Compile Include="StopAnimation.Designer.cs">
       <DependentUpon>StopAnimation.cs</DependentUpon>
     </Compile>
+    <Compile Include="SwimmingContol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SwimmingContol.Designer.cs">
+      <DependentUpon>SwimmingContol.cs</DependentUpon>
+    </Compile>
     <Compile Include="SwitchEvent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -673,6 +783,9 @@
     <EmbeddedResource Include="AddCraftingRecipe.resx">
       <DependentUpon>AddCraftingRecipe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddCutscene.resx">
+      <DependentUpon>AddCutscene.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddLantern.resx">
       <DependentUpon>AddLantern.cs</DependentUpon>
     </EmbeddedResource>
@@ -687,6 +800,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddQuest.resx">
       <DependentUpon>AddQuest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddToFestival.resx">
+      <DependentUpon>AddToFestival.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Add_Items.resx">
       <DependentUpon>Add_Items.cs</DependentUpon>
@@ -715,6 +831,12 @@
     <EmbeddedResource Include="ChangeLocation.resx">
       <DependentUpon>ChangeLocation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChangeMapTile.resx">
+      <DependentUpon>ChangeMapTile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeToTempMap.resx">
+      <DependentUpon>ChangeToTempMap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangeViewport.resx">
       <DependentUpon>ChangeViewport.cs</DependentUpon>
     </EmbeddedResource>
@@ -735,6 +857,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateMessage.resx">
       <DependentUpon>CreateMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateTemporarySprite.resx">
+      <DependentUpon>CreateTemporarySprite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DayInSeason.resx">
       <DependentUpon>DayInSeason.cs</DependentUpon>
@@ -784,8 +909,14 @@
     <EmbeddedResource Include="FaceDirection.resx">
       <DependentUpon>FaceDirection.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FadetoClear.resx">
+      <DependentUpon>FadetoClear.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FarmerEat.resx">
       <DependentUpon>FarmerEat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FarmerEyes.resx">
+      <DependentUpon>FarmerEyes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FarmerGender.resx">
       <DependentUpon>FarmerGender.cs</DependentUpon>
@@ -795,6 +926,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fast_Question.resx">
       <DependentUpon>Fast_Question.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgetEvents.resx">
+      <DependentUpon>ForgetEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgetMail.resx">
+      <DependentUpon>ForgetMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgetResponses.resx">
+      <DependentUpon>ForgetResponses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -829,11 +969,17 @@
     <EmbeddedResource Include="MailLetter.resx">
       <DependentUpon>MailLetter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MakeInvisible.resx">
+      <DependentUpon>MakeInvisible.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MarriedCheck.resx">
       <DependentUpon>MarriedCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyFP.resx">
       <DependentUpon>ModifyFP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifySpeed.resx">
+      <DependentUpon>ModifySpeed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MoveActor.resx">
       <DependentUpon>MoveActor.cs</DependentUpon>
@@ -868,6 +1014,9 @@
     <EmbeddedResource Include="OpenInvSlots.resx">
       <DependentUpon>OpenInvSlots.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PasteEvent.resx">
+      <DependentUpon>PasteEvent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pause Event.resx">
       <DependentUpon>Pause Event.cs</DependentUpon>
     </EmbeddedResource>
@@ -885,6 +1034,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PositionOffset.resx">
       <DependentUpon>PositionOffset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveItem.resx">
+      <DependentUpon>RemoveItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveProp.resx">
+      <DependentUpon>RemoveProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveQuest.resx">
+      <DependentUpon>RemoveQuest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveTempSprite.resx">
+      <DependentUpon>RemoveTempSprite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Schedule Dialogue.resx">
       <DependentUpon>Schedule Dialogue.cs</DependentUpon>
@@ -939,6 +1100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StopAnimation.resx">
       <DependentUpon>StopAnimation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SwimmingContol.resx">
+      <DependentUpon>SwimmingContol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SwitchEvent.resx">
       <DependentUpon>SwitchEvent.cs</DependentUpon>
@@ -1039,7 +1203,7 @@
     <Content Include="portrait4_8fC_icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Save Data\" />
+    <Folder Include="Save Data\EventBackups\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
