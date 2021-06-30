@@ -26,7 +26,9 @@ namespace NPC_Creator
         Bitmap portView;
         PatchVariable patchEvent = new PatchVariable();
         private List<string> filenames = new List<string>();
-        private string[] patchwork;
+        private List<string> festivals = new List<string>();
+        private List<string> festDialog = new List<string>();
+
         //private NPCDisposition NPCDispositionForm;
 
 
@@ -63,7 +65,9 @@ namespace NPC_Creator
             dateCheck = NPCDisposition.passDate;
             if (!Directory.Exists(Environment.CurrentDirectory + "\\Save Data"))
             {
-                Directory.CreateDirectory("Save Data");
+                Directory.CreateDirectory($"Save Data");
+                Directory.CreateDirectory($"Save Data/EventBackups");
+
             }
             //Acquire Projects
             string[] saveData = System.IO.Directory.GetFiles(Environment.CurrentDirectory + "\\Save Data", "*.npc");
@@ -157,18 +161,45 @@ namespace NPC_Creator
                     }
                     //Check for Event Files.. if so.. create a list
                     string[] files = Directory.GetFiles(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\Events");
-                    
+                    filenames.Clear(); //make sure the list is empty before filling it
                     foreach (string eventFile in files)
                     {
-                        string parse = "Data/Events/" + Path.GetFileNameWithoutExtension(eventFile);
+                        string parse = "assets/Events/" + Path.GetFileNameWithoutExtension(eventFile) + ".json";
                         filenames.Add(parse);
                     }
+                    //Check for festivals
+                    string[] festivalFiles = Directory.GetFiles(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\Festivals");
+                    festivals.Clear(); // make sure list is clear
+                    foreach (string festivalSaves in festivalFiles)
+                    {
+                        string parse = "assets/Festivals/" + Path.GetFileNameWithoutExtension(festivalSaves) + ".json";
+                        festivals.Add(parse);
+                    }
+                    //Don't forget the dialog!
+                    string[] festivalDialogFiles = Directory.GetFiles(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\Festivals\\Dialogue");
+                    festDialog.Clear();//Clear list
+                    foreach (string festivalSayings in festivalDialogFiles)
+                    {
+                        string parse = "assets/Festivals/Dialogue/" + Path.GetFileNameWithoutExtension(festivalSayings) + ".json";
+                        festDialog.Add(parse);
+                    }
+                    PatchVariable modifiedFestivalDialogue = new PatchVariable
+                    {
+                        LogName = "Festival Dialogue",
+                        Action = "Include",
+                        FromFile = string.Join(", ", festDialog),
+                    };
+                    PatchVariable modifiedFestivals = new PatchVariable
+                    {
+                        LogName = "Festivals",
+                        Action = "Include",
+                        FromFile = string.Join(", ", festivals),
+                    };
                     patchEvent = new PatchVariable
                     {
                         LogName = "Events",
-                        Action = "Load",
-                        Target = string.Join(", ", filenames),
-                        FromFile = "assets/Events/{{TargetWithoutPath}}.json"
+                        Action = "Include",
+                        FromFile = string.Join(", ", filenames),
                     };
                     PatchVariable patchDisposition = new PatchVariable
                     {
@@ -263,6 +294,10 @@ namespace NPC_Creator
                     }
                     if (filenames.Count != 0)
                         createPatch.Add(patchEvent);
+                    if (festivals.Count != 0)
+                        createPatch.Add(modifiedFestivals);
+                    if (festDialog.Count != 0)
+                        createPatch.Add(modifiedFestivalDialogue);
                     mainPatch = createPatch.ToArray();
                     ContentVariable createJson = new ContentVariable
                     {
@@ -797,6 +832,7 @@ namespace NPC_Creator
             Directory.CreateDirectory($"Export/[CP]{projectName}/assets/dialogue");
             Directory.CreateDirectory($"Export/[CP]{projectName}/assets/disposition");
             Directory.CreateDirectory($"Save Data");
+            Directory.CreateDirectory($"Save Data/EventBackups");
             Directory.CreateDirectory($"Save Data/{projectName}_saveData");
             Directory.CreateDirectory($"Save Data/{projectName}_saveData/GiftTasteData");
             Directory.CreateDirectory($"Save Data/{projectName}_saveData/Engagement");
@@ -1045,6 +1081,21 @@ namespace NPC_Creator
             Event_Studio frRem = new Event_Studio();
             exportSystem = npcNewSystemName.Text;
             frRem.ShowDialog();
+        }
+
+        private void AddToFestivals_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists($"Export/[CP]{projectName}"))
+            {
+                AddToFestival frRem = new AddToFestival();
+                exportSystem = this.npcNewSystemName.Text;
+                frRem.Text = $"Add {npcNewSystemName.Text} to Festivals";
+                frRem.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Cannot start this without a project!", "You didn't say the magic word..", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -140,17 +140,6 @@ namespace NPC_Creator
                 }
 
             }
-            if (File.Exists(Environment.CurrentDirectory + $"\\Save Data\\{systemName}_saveData\\marriageDialogue.json"))
-            {
-                string json = File.ReadAllText(Environment.CurrentDirectory + $"\\Save Data\\{systemName}_saveData\\marriageDialogue.json");
-                var recentLoad = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
-
-                foreach (KeyValuePair<string, string> pair in recentLoad)
-                {
-                    marriage.Add(pair.Key, pair.Value);
-                }
-
-            }
             if (!File.Exists(Environment.CurrentDirectory + $"\\Save Data\\{systemName}_saveData\\normalDialogue.json") && File.Exists(Environment.CurrentDirectory + $"\\Export\\[CP]{systemName}\\assets\\dialogue\\MarriageDialogue.json"))
             {
                 string json = File.ReadAllText(Environment.CurrentDirectory + $"\\Export\\[CP]{systemName}\\assets\\dialogue\\MarriageDialogue.json");
@@ -873,6 +862,11 @@ namespace NPC_Creator
             {
                 MessageBox.Show(ex.Message + "Please ensure:\n -The image is not already in the img folder.\n -That you have created a system folder.", "Flagarant Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
 
         }
     }

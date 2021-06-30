@@ -128,6 +128,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.npcNewSystemName = new System.Windows.Forms.ComboBox();
             this.createEvent = new System.Windows.Forms.Button();
+            this.AddToFestivals = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.portraitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spriteBox)).BeginInit();
@@ -1010,6 +1011,16 @@
             this.createEvent.UseVisualStyleBackColor = true;
             this.createEvent.Click += new System.EventHandler(this.createEvent_Click);
             // 
+            // AddToFestivals
+            // 
+            this.AddToFestivals.Location = new System.Drawing.Point(654, 41);
+            this.AddToFestivals.Name = "AddToFestivals";
+            this.AddToFestivals.Size = new System.Drawing.Size(106, 23);
+            this.AddToFestivals.TabIndex = 48;
+            this.AddToFestivals.Text = "Festivals";
+            this.AddToFestivals.UseVisualStyleBackColor = true;
+            this.AddToFestivals.Click += new System.EventHandler(this.AddToFestivals_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -1017,7 +1028,8 @@
             this.AutoScrollMinSize = new System.Drawing.Size(800, 600);
             this.AutoSize = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(862, 661);
+            this.ClientSize = new System.Drawing.Size(796, 661);
+            this.Controls.Add(this.AddToFestivals);
             this.Controls.Add(this.createEvent);
             this.Controls.Add(this.npcNewSystemName);
             this.Controls.Add(this.groupBox11);
@@ -1165,6 +1177,7 @@
         private System.Windows.Forms.Button fileCheck;
         private System.Windows.Forms.Button createTemplates;
         private System.Windows.Forms.Button createEvent;
+        private System.Windows.Forms.Button AddToFestivals;
     }
 }
 
