@@ -49,6 +49,9 @@ namespace NPC_Creator
 
         private void CloseWindow_Click(object sender, EventArgs e)
         {
+            spriteSheet.Image.Dispose();
+            spriteSheet.Image = null;
+            spriteSheet.Update();
             this.Close();
         }
     }
