@@ -141,6 +141,8 @@ namespace NPC_Creator
             }
             //Delete Old Event
             eventFileData.Items.Remove(eventFileData.SelectedItem);
+            parseConditions.Clear();
+            parsedCommands.Clear();
             //Open Event Editing
             Conditions frRem = new Conditions();
             frRem.Text = "Edit Event";
