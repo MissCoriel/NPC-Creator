@@ -654,6 +654,12 @@
     <Compile Include="ScreenGlow.Designer.cs">
       <DependentUpon>ScreenGlow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Seasonal_Portraits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seasonal_Portraits.Designer.cs">
+      <DependentUpon>Seasonal_Portraits.cs</DependentUpon>
+    </Compile>
     <Compile Include="SecretNotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1070,6 +1076,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenGlow.resx">
       <DependentUpon>ScreenGlow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seasonal_Portraits.resx">
+      <DependentUpon>Seasonal_Portraits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecretNotes.resx">
       <DependentUpon>SecretNotes.cs</DependentUpon>

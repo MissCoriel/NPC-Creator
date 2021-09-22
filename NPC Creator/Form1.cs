@@ -28,6 +28,8 @@ namespace NPC_Creator
         private List<string> filenames = new List<string>();
         private List<string> festivals = new List<string>();
         private List<string> festDialog = new List<string>();
+        private List<string> xtraSprites = new List<string>();
+        private List<string> xtraPorts = new List<string>();
 
         //private NPCDisposition NPCDispositionForm;
 
@@ -159,6 +161,21 @@ namespace NPC_Creator
                         Form1.exportSystem = this.projectName;
                         xrRem.ShowDialog();
                     }
+                    //Add patches for Sprites
+                    string[] spritesheetFiles = Directory.GetFiles(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\ExtraSpritesheets");
+                    foreach(string img in spritesheetFiles)
+                    {
+                        string parse = "Characters/" + Path.GetFileNameWithoutExtension(img);
+                        xtraSprites.Add(parse);
+                    }
+                    //Add patches for Portraits
+                    string[] portraitFiles = Directory.GetFiles(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\ExtraPortraits");
+                    foreach (string img in portraitFiles)
+                    {
+                        string parse = "Portraits/" + Path.GetFileNameWithoutExtension(img);
+                        xtraPorts.Add(parse);
+                    }
+
                     //Check for Event Files.. if so.. create a list
                     string[] files = Directory.GetFiles(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\Events");
                     filenames.Clear(); //make sure the list is empty before filling it
@@ -188,6 +205,20 @@ namespace NPC_Creator
                         LogName = "Festival Dialogue",
                         Action = "Include",
                         FromFile = string.Join(", ", festDialog),
+                    };
+                    PatchVariable extraSpritesheets = new PatchVariable
+                    {
+                        LogName = "Extra Spritesheets",
+                        Action = "Load",
+                        Target = string.Join(", ", xtraSprites),
+                        FromFile = "assets/img/ExtraSpritesheets/{{TargetWithoutPath}}.png",
+                    };
+                    PatchVariable extraPortraits = new PatchVariable
+                    {
+                        LogName = "Extra Portraits",
+                        Action = "Load",
+                        Target = string.Join(", ", xtraPorts),
+                        FromFile = "assets/img/ExtraPortraits/{{TargetWithoutPath}}.png",
                     };
                     PatchVariable modifiedFestivals = new PatchVariable
                     {
@@ -298,6 +329,10 @@ namespace NPC_Creator
                         createPatch.Add(modifiedFestivals);
                     if (festDialog.Count != 0)
                         createPatch.Add(modifiedFestivalDialogue);
+                    if (xtraPorts.Count != 0)
+                        createPatch.Add(extraPortraits);
+                    if (xtraSprites.Count != 0)
+                        createPatch.Add(extraSpritesheets);
                     mainPatch = createPatch.ToArray();
                     ContentVariable createJson = new ContentVariable
                     {
@@ -502,7 +537,7 @@ namespace NPC_Creator
                             Bitmap spriteFrame = spriteView.Clone(pixelAreaForTile, PixelFormat.DontCare);
                             spriteBox.Image = spriteFrame;
                             spriteBox.Refresh();
-
+                            spriteView.Dispose();
 
 
                         }
@@ -522,7 +557,7 @@ namespace NPC_Creator
                             Rectangle pixelAreaForTile = this.GetTileArea(tileIndex: 0, tileWidth: 64, tileHeight: 64, sheetWidthInTiles: 2);               // Rectangle rect = new Rectangle(xmin, ymin, xmaximum, ymaximum);
                             Bitmap spriteFrame = portView.Clone(pixelAreaForTile, PixelFormat.DontCare);
                             portraitBox.Image = spriteFrame;
-
+                            portView.Dispose();
                         }
                         catch (Exception ex)
                         {
@@ -545,6 +580,8 @@ namespace NPC_Creator
                     Directory.CreateDirectory($"Save Data/{npcNewSystemName.Text}_saveData");
                     Directory.CreateDirectory($"Save Data/{npcNewSystemName.Text}_saveData/GiftTasteData");
                     Directory.CreateDirectory($"Save Data/{npcNewSystemName.Text}_saveData/Engagement");
+                    Directory.CreateDirectory(Environment.CurrentDirectory + $"\\Export\\[CP]{npcNewSystemName.Text}\\assets\\Festivals");
+                    Directory.CreateDirectory(Environment.CurrentDirectory + $"\\Export\\[CP]{npcNewSystemName.Text}\\assets\\Festivals\\Dialogue");
 
 
 
@@ -589,26 +626,80 @@ namespace NPC_Creator
 
                 if (importDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    File.Copy(importDialog.FileName, Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\spritesheet.png");
+                    if (File.Exists(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\spritesheet.png"))
+                    {
+                         DialogResult addsprites = MessageBox.Show("A main spritesheet exists.  Do you wish to replace? Press NO to add in a custom spritesheet.", "Add Spritesheet", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                        if(addsprites == DialogResult.Yes)
+                        {
+                            //remove spritebox
+                            spriteBox.Image.Dispose();
+                            spriteBox.Image = null;
+                            spriteBox.Update();
+                            File.Delete(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\spritesheet.png");
+                            File.Copy(importDialog.FileName, Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\spritesheet.png");
+                            try
+                            {
+                                //Get Spritesheet
+                                spriteView = new Bitmap(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\spritesheet.png");
+                                Rectangle pixelAreaForTile = this.GetTileArea(tileIndex: 0, tileWidth: 16, tileHeight: 32, sheetWidthInTiles: 4);               // Rectangle rect = new Rectangle(xmin, ymin, xmaximum, ymaximum);
+                                Bitmap spriteFrame = spriteView.Clone(pixelAreaForTile, PixelFormat.DontCare);
+                                spriteBox.Image = spriteFrame;
+                                spriteBox.Refresh();
+                                spriteBox.Image.Dispose();
+                                spriteView.Dispose();
+
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message + "\n You cannot exceed the number of frames your Spritesheet has!!", "Why can't I hold all these Frames?!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            SpritesheetView frRem = new SpritesheetView();
+                            Form1.exportSystem = this.projectName;
+                            frRem.ShowDialog();
+
+                        }
+                        else if(addsprites == DialogResult.No)
+                        {
+                            //move file to temp
+                            //File.Copy(importDialog.FileName, Environment.CurrentDirectory + "\\Save Data\\tmp\\NewSpritesheet.png");
+                            SaveFileDialog extraSprite = new SaveFileDialog();
+                            extraSprite.InitialDirectory = Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\ExtraSpritesheets";
+                            extraSprite.Filter = "PNG File|*.png";
+                            extraSprite.Title = "File name format: NPC_spritesheetuse";
+                            if(extraSprite.ShowDialog() == DialogResult.OK)
+                            {
+                                File.Copy(importDialog.FileName, extraSprite.FileName);
+
+                            }
+                        }
+                    }
+                    if (!File.Exists(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\spritesheet.png"))
+                    {
+                        File.Copy(importDialog.FileName, Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\spritesheet.png");
+                        try
+                        {
+                            //Get Spritesheet
+                            spriteView = new Bitmap(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\spritesheet.png");
+                            Rectangle pixelAreaForTile = this.GetTileArea(tileIndex: 0, tileWidth: 16, tileHeight: 32, sheetWidthInTiles: 4);               // Rectangle rect = new Rectangle(xmin, ymin, xmaximum, ymaximum);
+                            Bitmap spriteFrame = spriteView.Clone(pixelAreaForTile, PixelFormat.DontCare);
+                            spriteBox.Image = spriteFrame;
+                            spriteBox.Refresh();
+                            spriteBox.Image.Dispose();
+                            spriteView.Dispose();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message + "\n You cannot exceed the number of frames your Spritesheet has!!", "Why can't I hold all these Frames?!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        SpritesheetView frRem = new SpritesheetView();
+                        Form1.exportSystem = this.projectName;
+                        frRem.ShowDialog();
+
+                    }
 
                     //Bitmap addSprite = new Bitmap(spriteLocation);
                     //spriteSheet.Image = addSprite;
-                    try
-                    {
-                        //Get Spritesheet
-                        spriteView = new Bitmap(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\spritesheet.png");
-                        Rectangle pixelAreaForTile = this.GetTileArea(tileIndex: 0, tileWidth: 16, tileHeight: 32, sheetWidthInTiles: 4);               // Rectangle rect = new Rectangle(xmin, ymin, xmaximum, ymaximum);
-                        Bitmap spriteFrame = spriteView.Clone(pixelAreaForTile, PixelFormat.DontCare);
-                        spriteBox.Image = spriteFrame;
-                        spriteBox.Refresh();
-
-
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message + "\n You cannot exceed the number of frames your Spritesheet has!!", "Why can't I hold all these Frames?!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
 
 
                 }
@@ -619,9 +710,6 @@ namespace NPC_Creator
 
             }
 
-            SpritesheetView frRem = new SpritesheetView();
-            Form1.exportSystem = this.projectName;
-            frRem.ShowDialog();
         }
         //Load Portrait
         private void ImportPortrait_Click(object sender, EventArgs e)
@@ -634,21 +722,71 @@ namespace NPC_Creator
 
                 if (importDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    File.Copy(importDialog.FileName, spriteLocation);
-
-                    try
+                    if(File.Exists(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\portrait.png"))
                     {
-                        //Get Spritesheet
-                        portView = new Bitmap(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\portrait.png");
-                        Rectangle pixelAreaForTile = this.GetTileArea(tileIndex: 0, tileWidth: 64, tileHeight: 64, sheetWidthInTiles: 2);               // Rectangle rect = new Rectangle(xmin, ymin, xmaximum, ymaximum);
-                        Bitmap spriteFrame = portView.Clone(pixelAreaForTile, PixelFormat.DontCare);
-                        portraitBox.Image = spriteFrame;
+                        DialogResult portraitAdd = MessageBox.Show("A main portrait exists.  Do you wish to replace? Press NO to add in a custom portrait.", "Add Portrait", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                        if (portraitAdd == DialogResult.Yes)
+                        {
+                            portraitBox.Image.Dispose();
+                            portraitBox.Image = null;
+                            portraitBox.Update();
+
+                            File.Delete(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\portrait.png");
+                            File.Copy(importDialog.FileName, Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\portrait.png");
+                            try
+                            {
+                                //Get Spritesheet
+                                portView = new Bitmap(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\portrait.png");
+                                Rectangle pixelAreaForTile = this.GetTileArea(tileIndex: 0, tileWidth: 64, tileHeight: 64, sheetWidthInTiles: 2);               // Rectangle rect = new Rectangle(xmin, ymin, xmaximum, ymaximum);
+                                Bitmap spriteFrame = portView.Clone(pixelAreaForTile, PixelFormat.DontCare);
+                                portraitBox.Image = spriteFrame;
+                                portView.Dispose();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message + "\n You cannot exceed the number of frames your Spritesheet has!!", "Why can't I hold all these Frames?!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            PortraitView prtView = new PortraitView();
+                            Form1.exportSystem = this.projectName;
+                            prtView.ShowDialog();
+
+                        }
+                        else if (portraitAdd == DialogResult.No)
+                        {
+                            SaveFileDialog addCustomPort = new SaveFileDialog();
+                            addCustomPort.InitialDirectory = Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\ExtraPortraits";
+                            addCustomPort.Filter = "PNG File|*.png";
+                            addCustomPort.Title = "File name format: NPC_portraituse";
+                            if (addCustomPort.ShowDialog() == DialogResult.OK)
+                            {
+                                File.Copy(importDialog.FileName, addCustomPort.FileName);
+                            }
+
+                        }
+                    }
+                    if(!File.Exists(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\portrait.png"))
+                    {
+                        File.Copy(importDialog.FileName, spriteLocation);
+                        try
+                        {
+                            //Get Spritesheet
+                            portView = new Bitmap(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\img\\portrait.png");
+                            Rectangle pixelAreaForTile = this.GetTileArea(tileIndex: 0, tileWidth: 64, tileHeight: 64, sheetWidthInTiles: 2);               // Rectangle rect = new Rectangle(xmin, ymin, xmaximum, ymaximum);
+                            Bitmap spriteFrame = portView.Clone(pixelAreaForTile, PixelFormat.DontCare);
+                            portraitBox.Image = spriteFrame;
+                            portView.Dispose();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message + "\n You cannot exceed the number of frames your Spritesheet has!!", "Why can't I hold all these Frames?!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        PortraitView frRem = new PortraitView();
+                        Form1.exportSystem = this.projectName;
+                        frRem.ShowDialog();
 
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message + "\n You cannot exceed the number of frames your Spritesheet has!!", "Why can't I hold all these Frames?!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+
 
                 }
             }
@@ -657,9 +795,6 @@ namespace NPC_Creator
                 MessageBox.Show(ex.Message + "Please ensure:\n -The image is not already in the img folder.\n -That you have created a system folder.", "Flagarant Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            PortraitView frRem = new PortraitView();
-            Form1.exportSystem = this.projectName;
-            frRem.ShowDialog();
         }
 
 
@@ -828,6 +963,8 @@ namespace NPC_Creator
             Directory.CreateDirectory($"Export/[CP]{projectName}/assets");
             Directory.CreateDirectory($"Export/[CP]{projectName}/assets/anim");
             Directory.CreateDirectory($"Export/[CP]{projectName}/assets/img");
+            Directory.CreateDirectory($"Export/[CP]{projectName}/assets/img/ExtraSpritesheets");
+            Directory.CreateDirectory($"Export/[CP]{projectName}/assets/img/ExtraPortraits");
             Directory.CreateDirectory($"Export/[CP]{projectName}/assets/schedules");
             Directory.CreateDirectory($"Export/[CP]{projectName}/assets/dialogue");
             Directory.CreateDirectory($"Export/[CP]{projectName}/assets/disposition");
@@ -837,6 +974,8 @@ namespace NPC_Creator
             Directory.CreateDirectory($"Save Data/{projectName}_saveData/GiftTasteData");
             Directory.CreateDirectory($"Save Data/{projectName}_saveData/Engagement");
             Directory.CreateDirectory($"Export/[CP]{projectName}/assets/Events");
+            Directory.CreateDirectory(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\Festivals");
+            Directory.CreateDirectory(Environment.CurrentDirectory + $"\\Export\\[CP]{projectName}\\assets\\Festivals\\Dialogue");
 
         }
         //Click Reset Items List
@@ -996,9 +1135,7 @@ namespace NPC_Creator
                         Rectangle pixelAreaForTile = this.GetTileArea(tileIndex: 0, tileWidth: 16, tileHeight: 32, sheetWidthInTiles: 4);               // Rectangle rect = new Rectangle(xmin, ymin, xmaximum, ymaximum);
                         Bitmap spriteFrame = spriteView.Clone(pixelAreaForTile, PixelFormat.DontCare);
                         spriteBox.Image = spriteFrame;
-                        spriteBox.Refresh();
-
-
+                        spriteView.Dispose();
 
                     }
                     catch (Exception ex)
@@ -1012,7 +1149,7 @@ namespace NPC_Creator
                         Rectangle pixelAreaForTile = this.GetTileArea(tileIndex: 0, tileWidth: 64, tileHeight: 64, sheetWidthInTiles: 2);               // Rectangle rect = new Rectangle(xmin, ymin, xmaximum, ymaximum);
                         Bitmap spriteFrame = portView.Clone(pixelAreaForTile, PixelFormat.DontCare);
                         portraitBox.Image = spriteFrame;
-
+                        portView.Dispose();
                     }
                     catch (Exception ex)
                     {
