@@ -195,3 +195,11 @@ refusal_botherA
 refusal_botherB
 giftquestion_yes
 giftquestion_lie
+birthdayLoveA
+birthdayLoveB
+birthdayLikeA
+birthdayLikeB
+birthdayDislikeA
+birthdayDislikeB
+birthdayNeutralA
+birthdayNeutralB
